@@ -1,0 +1,1 @@
+nuget pack "..\src\Metroit.Win.GcSpread\Metroit.Win.GcSpread.csproj" -Prop Configuration=Release
