@@ -35,8 +35,6 @@ namespace Metroit.Win.GcSpread
             KeyDown += (sender, e) =>
             {
                 // キーマップされている処理を強制実行する
-                Console.WriteLine($"{e.KeyData}");
-                Console.WriteLine($"{e.KeyCode}");
                 KeyMapActionManager.Execute(e.KeyData, ActiveSheet.ActiveCell, true);
             };
         }
