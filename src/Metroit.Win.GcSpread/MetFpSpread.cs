@@ -1,5 +1,6 @@
 ﻿using FarPoint.Win.Spread;
 using GrapeCity.Win.Spread.InputMan.CellType;
+using Metroit.Win.GcSpread.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,10 @@ namespace Metroit.Win.GcSpread
 
                 var gcComboCellType = GetGcComboBoxCellType(e.Row, e.Column);
                 if (gcComboCellType == null)
+                {
+                    return;
+                }
+                if (!ActiveSheet.Cells[e.Row, e.Column].CanEditable())
                 {
                     return;
                 }
