@@ -146,6 +146,20 @@
             新しい MetFpSpread インスタンスを生成します。
             </summary>
         </member>
+        <member name="P:Metroit.Win.GcSpread.MetFpSpread.AutoOpenDropDown">
+            <summary>
+            GcComboBoxCellType のセルをクリックした時、自動的にドロップダウンを表示するかどうかを指定します。
+            true の場合、セルのクリックでドロップダウンが表示され、ドロップダウンが閉じられた時には編集モードではなくなります。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.MetFpSpread.GetGcComboBoxCellType(System.Int32,System.Int32)">
+            <summary>
+            GcComboBoxCellType を取得する。セルの CellType が未設定の時、列の CellType を取得する。
+            </summary>
+            <param name="row">行インデックス。</param>
+            <param name="column">列インデックス。</param>
+            <returns>GcComboBoxCellType。取得できない場合は null を返却する。</returns>
+        </member>
         <member name="M:Metroit.Win.GcSpread.MetFpSpread.OnCreateControl">
             <summary>
             コントロールが最初に作成されると呼び出されます。

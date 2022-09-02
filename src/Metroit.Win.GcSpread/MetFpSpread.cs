@@ -1,4 +1,5 @@
 ﻿using FarPoint.Win.Spread;
+using GrapeCity.Win.Spread.InputMan.CellType;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,9 @@ namespace Metroit.Win.GcSpread
     /// </summary>
     public class MetFpSpread : FpSpread
     {
+        private bool prevEditModePermanent;
+        private bool prevAutoDropDown;
+
         /// <summary>
         /// キーマップ制御の動作を取得します。
         /// </summary>
@@ -37,6 +41,87 @@ namespace Metroit.Win.GcSpread
                 // キーマップされている処理を強制実行する
                 KeyMapActionManager.Execute(e.KeyData, ActiveSheet.ActiveCell, true);
             };
+
+            // NOTE: CellClick, ComboDropDown, ComoCloseUp によって、GcComboBoxCellType がクリックされた時に
+            //       自動的にドロップダウンを表示し、ドロップダウンを閉じた時に編集モードを解除する。
+            CellClick += (sender, e) =>
+            {
+                if (!AutoOpenDropDown)
+                {
+                    return;
+                }
+
+                var gcComboCellType = GetGcComboBoxCellType(e.Row, e.Column);
+                if (gcComboCellType == null)
+                {
+                    return;
+                }
+
+                prevEditModePermanent = EditModePermanent;
+                prevAutoDropDown = gcComboCellType.DropDown.AutoDropDown;
+                EditModePermanent = true;
+                gcComboCellType.DropDown.AutoDropDown = true;
+            };
+
+            ComboDropDown += (sender, e) =>
+            {
+                if (!AutoOpenDropDown)
+                {
+                    return;
+                }
+
+                var gcComboCellType = GetGcComboBoxCellType(e.Row, e.Column);
+                if (gcComboCellType == null)
+                {
+                    return;
+                }
+
+                EditModePermanent = prevEditModePermanent;
+                gcComboCellType.DropDown.AutoDropDown = prevAutoDropDown;
+            };
+
+            ComboCloseUp += (sender, e) =>
+            {
+                if (!AutoOpenDropDown)
+                {
+                    return;
+                }
+
+                var gcComboCellType = GetGcComboBoxCellType(e.Row, e.Column);
+                if (gcComboCellType == null)
+                {
+                    return;
+                }
+
+                EditMode = false;
+            };
+        }
+
+        /// <summary>
+        /// GcComboBoxCellType のセルをクリックした時、自動的にドロップダウンを表示するかどうかを指定します。
+        /// true の場合、セルのクリックでドロップダウンが表示され、ドロップダウンが閉じられた時には編集モードではなくなります。
+        /// </summary>
+        [Browsable(true)]
+        [DefaultValue(false)]
+        [Category("Metroit拡張 動作")]
+        [Description("GcComboBoxCellType のセルをクリックした時、自動的にドロップダウンを表示するかどうかを指定します。true の場合、セルのクリックでドロップダウンが表示され、ドロップダウンが閉じられた時には編集モードではなくなります。")]
+        public bool AutoOpenDropDown { get; set; } = false;
+
+        /// <summary>
+        /// GcComboBoxCellType を取得する。セルの CellType が未設定の時、列の CellType を取得する。
+        /// </summary>
+        /// <param name="row">行インデックス。</param>
+        /// <param name="column">列インデックス。</param>
+        /// <returns>GcComboBoxCellType。取得できない場合は null を返却する。</returns>
+        private GcComboBoxCellType GetGcComboBoxCellType(int row, int column)
+        {
+            var gcComboCellType = ActiveSheet.Cells[row, column].CellType as GcComboBoxCellType;
+            if (gcComboCellType == null)
+            {
+                gcComboCellType = ActiveSheet.Columns[column].CellType as GcComboBoxCellType;
+            }
+
+            return gcComboCellType;
         }
 
         /// <summary>
