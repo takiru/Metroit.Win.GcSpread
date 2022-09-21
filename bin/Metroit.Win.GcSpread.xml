@@ -815,6 +815,29 @@
             <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String)">
+            <summary>
+            null または 空 を許可しない値検証の振る舞いを生成します。
+            </summary>
+            <param name="name">項目名。</param>
+            <returns>値検証の振る舞い。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String,System.String)">
+            <summary>
+            null または 空 を許可しない値検証の振る舞いを生成します。
+            </summary>
+            <param name="name">項目名。</param>
+            <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+            <returns>値検証の振る舞い。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String,System.Int32)">
+            <summary>
+            null または 空 を許可しない値検証の振る舞いを生成します。
+            </summary>
+            <param name="name">項目名。</param>
+            <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+            <returns>値検証の振る舞い。</returns>
+        </member>
         <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateHalfWidthCharsBehavior(System.String)">
             <summary>
             半角英数記号以外を許可しない値検証の振る舞いを生成します。
@@ -960,6 +983,13 @@
             </summary>
             <param name="value">値。</param>
             <returns>true:null である, false:null でない。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.IsNullOrEmpty(System.Object)">
+            <summary>
+            値が null もしくは 空 かどうか検証します。
+            </summary>
+            <param name="value">値。</param>
+            <returns>true:null もしくは 空 である, false:null もしくは 空 でない。</returns>
         </member>
         <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.IsNullAll(System.Object[])">
             <summary>

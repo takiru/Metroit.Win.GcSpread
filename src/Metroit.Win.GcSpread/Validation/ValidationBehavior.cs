@@ -109,6 +109,44 @@ namespace Metroit.Win.GcSpread.Validation
         }
 
         /// <summary>
+        /// null または 空 を許可しない値検証の振る舞いを生成します。
+        /// </summary>
+        /// <param name="name">項目名。</param>
+        /// <returns>値検証の振る舞い。</returns>
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name)
+        {
+            return new ValidationBehavior(
+                (sheet, cell) => !IsNullOrEmpty(cell.Value),
+                $"{name}を入力してください。");
+        }
+
+        /// <summary>
+        /// null または 空 を許可しない値検証の振る舞いを生成します。
+        /// </summary>
+        /// <param name="name">項目名。</param>
+        /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+        /// <returns>値検証の振る舞い。</returns>
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, string errorDataField)
+        {
+            var result = CreateNotNullOrEmptyBehavior(name);
+            result.SetErrorDataField(errorDataField);
+            return result;
+        }
+
+        /// <summary>
+        /// null または 空 を許可しない値検証の振る舞いを生成します。
+        /// </summary>
+        /// <param name="name">項目名。</param>
+        /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+        /// <returns>値検証の振る舞い。</returns>
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, int errorColumn)
+        {
+            var result = CreateNotNullOrEmptyBehavior(name);
+            result.SetErrorColumn(errorColumn);
+            return result;
+        }
+
+        /// <summary>
         /// 半角英数記号以外を許可しない値検証の振る舞いを生成します。
         /// </summary>
         /// <param name="name">項目名。</param>
@@ -403,6 +441,25 @@ namespace Metroit.Win.GcSpread.Validation
             {
                 return true;
             }
+            return false;
+        }
+
+        /// <summary>
+        /// 値が null もしくは 空 かどうか検証します。
+        /// </summary>
+        /// <param name="value">値。</param>
+        /// <returns>true:null もしくは 空 である, false:null もしくは 空 でない。</returns>
+        public static bool IsNullOrEmpty(object value)
+        {
+            if (value == null)
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(value.ToString()))
+            {
+                return true;
+            }
+
             return false;
         }
 
