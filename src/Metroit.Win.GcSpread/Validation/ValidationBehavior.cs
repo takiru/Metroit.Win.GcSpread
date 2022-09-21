@@ -162,7 +162,7 @@ namespace Metroit.Win.GcSpread.Validation
                     var count = sheet.Rows.Cast<Row>().Where((row) =>
                     {
                         // 無視する行は対象外
-                        if (ignore(row))
+                        if (ignore != null && ignore(row))
                         {
                             return false;
                         }
@@ -170,7 +170,13 @@ namespace Metroit.Win.GcSpread.Validation
                         // 値が重複していないものは対象外
                         foreach (var dataField in dataFields)
                         {
-                            if (cell.Row.GetValueFromDataField(dataField) != row.GetValueFromDataField(dataField))
+                            var sourceValue = cell.Row.GetValueFromDataField(dataField);
+                            if (sourceValue == null)
+                            {
+                                return false;
+                            }
+
+                            if (!sourceValue.Equals(row.GetValueFromDataField(dataField)))
                             {
                                 return false;
                             }
@@ -205,7 +211,7 @@ namespace Metroit.Win.GcSpread.Validation
                     var count = sheet.Rows.Cast<Row>().Where((row) =>
                     {
                         // 無視する行は対象外
-                        if (ignore(row))
+                        if (ignore != null && ignore(row))
                         {
                             return false;
                         }
@@ -213,7 +219,13 @@ namespace Metroit.Win.GcSpread.Validation
                         // 値が重複していないものは対象外
                         foreach (var column in columns)
                         {
-                            if (sheet.Cells[cell.Row.Index, column].Value != sheet.Cells[row.Index, column].Value)
+                            var sourceValue = sheet.Cells[cell.Row.Index, column].Value;
+                            if (sourceValue == null)
+                            {
+                                return false;
+                            }
+
+                            if (!sourceValue.Equals(sheet.Cells[row.Index, column].Value))
                             {
                                 return false;
                             }
