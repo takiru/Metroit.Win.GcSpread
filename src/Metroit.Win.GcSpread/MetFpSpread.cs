@@ -51,7 +51,11 @@ namespace Metroit.Win.GcSpread
                 {
                     return;
                 }
-
+                if (e.ColumnHeader || e.ColumnFooter || e.RowHeader)
+                {
+                    return;
+                }
+                
                 var gcComboCellType = GetGcComboBoxCellType(e.Row, e.Column);
                 if (gcComboCellType == null)
                 {
