@@ -95,6 +95,277 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1">
+            <summary>
+            1レコードを複数行として扱うインターフェースを提供します。
+            </summary>
+            <typeparam name="T">StateKnownMultiRowItemBase を有する型。</typeparam>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.Rows">
+            <summary>
+            アイテムデータを取得します。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.NewItem">
+            <summary>
+            新しいアイテムを生成します。
+            </summary>
+            <returns>新しいアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.AddRow">
+            <summary>
+            行を追加します。
+            </summary>
+            <returns>追加された行のアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.AddRow(`0)">
+            <summary>
+            行を追加します。
+            </summary>
+            <param name="row">追加するアイテム。</param>
+            <returns>追加されたアイテム</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.RemoveRow(`0)">
+            <summary>
+            行を削除します。
+            </summary>
+            <param name="row">削除するアイテム。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.GetItem(System.Int32)">
+            <summary>
+            画面の行インデックスから、アイテムを取得します。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>アイテム。</returns>
+        </member>
+        <member name="T:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1">
+            <summary>
+            1レコードを複数行として扱う機能を提供します。
+            null が許容されるセルの場合、アイテムが null 許容型でない場合、セルの見た目とアテムの値が一致しない可能性があります。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.IsCellValueChanged">
+            <summary>
+            Cell の値が変更されたかどうかを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Sheet">
+            <summary>
+            扱っているシートを取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.RowNumber">
+            <summary>
+            1レコードに対する行数を取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Rows">
+            <summary>
+            アイテムデータを取得します。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.#ctor(FarPoint.Win.Spread.SheetView,System.Int32,System.Action{System.Int32,FarPoint.Win.Spread.Cell})">
+            <summary>
+            新しいインスタンスを生成します。
+            </summary>
+            <param name="sheet">シートオブジェクト。</param>
+            <param name="rowNumber">1レコードの行数。</param>
+            <param name="cellSetup">セルの CellType や Tag の設定を可能とします。Text や Value を変更してはなりません。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Metroit#Win#GcSpread#Collections#IMultiRowSheet#NewItem">
+            <summary>
+            新しいアイテムを生成します。
+            </summary>
+            <returns>新しいアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.NewItem">
+            <summary>
+            新しいアイテムを生成します。
+            </summary>
+            <returns>新しいアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Metroit#Win#GcSpread#Collections#IMultiRowSheet#AddRow">
+            <summary>
+            行を追加します。
+            </summary>
+            <returns>追加された行のアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.AddRow">
+            <summary>
+            行を追加します。
+            </summary>
+            <returns>追加された行のアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.AddRow(System.Object)">
+            <summary>
+            行を追加します。
+            外部からの利用は不要です。
+            </summary>
+            <param name="row">追加するアイテム。</param>
+            <returns>追加されたアイテム</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.AddRow(`0)">
+            <summary>
+            行を追加します。
+            </summary>
+            <param name="row">追加するアイテム。</param>
+            <returns>追加されたアイテム</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.InitializeItem(`0)">
+            <summary>
+            アイテムの初期化を行う。
+            </summary>
+            <param name="item">アイテム。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.AddActualRow(`0)">
+            <summary>
+            実際のシート行を追加する。
+            </summary>
+            <param name="item">行のアイテム。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.RemoveRow(System.Int32)">
+            <summary>
+            画面の行インデックスから、行を削除する。
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Metroit#Win#GcSpread#Collections#IMultiRowSheet#RemoveRow(System.Object)">
+            <summary>
+            行を削除します。
+            外部からの利用は不要です。
+            </summary>
+            <param name="row">削除するアイテム。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.RemoveRow(`0)">
+            <summary>
+            行を削除します。
+            </summary>
+            <param name="row">削除するオブジェクト。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.GetItemIndex(System.Int32)">
+            <summary>
+            画面の行インデックスから、データのインデックスを求める。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>データのインデックス。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.GetItemRowNumber(System.Int32)">
+            <summary>
+            画面の行インデックスから、データの行インデックスを取得します。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>データの行インデックス。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Metroit#Win#GcSpread#Collections#IMultiRowSheet#GetItem(System.Int32)">
+            <summary>
+            画面の行インデックスから、アイテムを取得します。
+            外部からの利用は不要です。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>アイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.GetItem(System.Int32)">
+            <summary>
+            画面の行インデックスから、アイテムを取得します。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>アイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Dispose">
+            <summary>
+            オブジェクトを破棄する時、イベントを除去する。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Dispose(System.Boolean)">
+            <summary>
+            オブジェクトの破棄を行う。
+            </summary>
+            <param name="disposing">マネージコードを破棄するかどうか。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Sheet_CellChanged(System.Object,FarPoint.Win.Spread.SheetViewEventArgs)">
+            <summary>
+            セルの値が変更された時、値を MultiRowIteBase へ反映する。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Metroit.Win.GcSpread.Collections.IMultiRowSheet">
+            <summary>
+            1レコードを複数行として扱う インターフェースを提供します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.IMultiRowSheet.Sheet">
+            <summary>
+            扱っているシートを取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.IMultiRowSheet.RowNumber">
+            <summary>
+            1レコードに対する行数を取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.IMultiRowSheet.Rows">
+            <summary>
+            アイテムデータを取得します。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.NewItem">
+            <summary>
+            新しいアイテムを生成します。
+            </summary>
+            <returns>新しいアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.AddRow">
+            <summary>
+            行を追加します。
+            </summary>
+            <returns>追加された行のアイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.AddRow(System.Object)">
+            <summary>
+            行を追加します。
+            </summary>
+            <param name="row">追加するアイテム。</param>
+            <returns>追加されたアイテム</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.RemoveRow(System.Int32)">
+            <summary>
+            画面の行インデックスから、行を削除します。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.RemoveRow(System.Object)">
+            <summary>
+            行を削除します。
+            </summary>
+            <param name="row">削除するアイテム。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.GetItemIndex(System.Int32)">
+            <summary>
+            画面の行インデックスから、アイテムのインデックスを取得します。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>アイテムのインデックス。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.GetItemRowNumber(System.Int32)">
+            <summary>
+            画面の行インデックスから、データの行インデックスを取得します。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>データの行インデックス。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.GetItem(System.Int32)">
+            <summary>
+            画面の行インデックスから、アイテムを取得します。
+            </summary>
+            <param name="index">画面の行インデックス。</param>
+            <returns>アイテム。</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.Dispose">
+            <summary>
+            オブジェクトを破棄します。
+            </summary>
+        </member>
         <member name="T:Metroit.Win.GcSpread.ColumnMoveResult">
             <summary>
             列の移動を行った情報を提供します。
@@ -128,6 +399,16 @@
         <member name="P:Metroit.Win.GcSpread.ColumnMoveResult.DataField">
             <summary>
             列の DataField プロパティ値を取得します。
+            </summary>
+        </member>
+        <member name="T:Metroit.Win.GcSpread.ISheetState">
+            <summary>
+            シートの操作状態 のインターフェースを提供します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.ISheetState.IsCellValueChanged">
+            <summary>
+            Cell の値が変更されたかどうかを取得または設定します。
             </summary>
         </member>
         <member name="T:Metroit.Win.GcSpread.MetFpSpread">
@@ -610,6 +891,82 @@
             <param name="keyData">キーデータ。</param>
             <param name="cell">Cell オブジェクト。</param>
             <param name="ignoreLock">シートのプロテクト、セルのロックを無視するかどうか。</param>
+        </member>
+        <member name="T:Metroit.Win.GcSpread.MultiRowAttribute">
+            <summary>
+            1レコード複数行のデータの定義を提供します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.MultiRowAttribute.Row">
+            <summary>
+            行インデックスを取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.MultiRowAttribute.Column">
+            <summary>
+            列インデックスを取得します。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.MultiRowAttribute.#ctor(System.Int32,System.Int32)">
+            <summary>
+            新しいインスタンスを生成します。
+            </summary>
+            <param name="row">行インデックス。</param>
+            <param name="column">列インデックス。</param>
+        </member>
+        <member name="T:Metroit.Win.GcSpread.StateKnownMultiRowItemBase">
+            <summary>
+            値の変更状態を有する1レコード複数行のアイテムを提供します。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.#ctor">
+            <summary>
+            新しいインスタンスを生成します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.Sheet">
+            <summary>
+            アイテムが認識しているシートを取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.SheetState">
+            <summary>
+            シートの操作状態を取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.IsItemValueChanged">
+            <summary>
+            アイテムプロパティの値変更を行ったかどうかを取得します。
+            </summary>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.Initialize(FarPoint.Win.Spread.SheetView,Metroit.Win.GcSpread.ISheetState)">
+            <summary>
+            アイテムの初期化を行います。
+            </summary>
+            <param name="sheet">シートオブジェクト。</param>
+            <param name="sheetState">シートの操作状態オブジェクト。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.NotifyChangedValue``1(System.String,``0)">
+            <summary>
+            変更された値を通知します。
+            </summary>
+            <typeparam name="T">設定するプロパティ情報</typeparam>
+            <param name="propertyName">プロパティ名。</param>
+            <param name="value">値。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.ReactiveCellValue``1(System.String,``0)">
+            <summary>
+            変更された値をシートのセルへ反映します。
+            </summary>
+            <typeparam name="T">設定するプロパティ情報</typeparam>
+            <param name="propertyName">プロパティ名。</param>
+            <param name="value">値。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.StateKnownMultiRowItemBase.CanReactive">
+            <summary>
+            リアクティブ可能かどうかを取得する。
+            </summary>
+            <returns>true:リアクティブ可能, false:リアクティブ不可能。</returns>
         </member>
         <member name="T:Metroit.Win.GcSpread.Validation.RowValidatorBase`1">
             <summary>

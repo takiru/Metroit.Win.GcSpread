@@ -242,7 +242,10 @@ namespace Metroit.Win.GcSpread
             var ci = CultureInfo.CurrentCulture.CompareInfo;
             if (ci.IndexOf(cell.Value.ToString(), text, compareOptions) < 0)
             {
-                return false;
+                if (ci.IndexOf(cell.Text, text, compareOptions) < 0)
+                {
+                    return false;
+                }
             }
 
             Sheet.SetActiveCell(cell.Row.Index, cell.Column.Index, VerticalPosition.Nearest, HorizontalPosition.Nearest);

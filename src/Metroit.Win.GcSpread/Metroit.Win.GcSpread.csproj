@@ -66,7 +66,11 @@
     <Compile Include="CellSearchForm.Designer.cs">
       <DependentUpon>CellSearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Collections\Generic\IMultiRowSheet.cs" />
+    <Compile Include="Collections\Generic\MultiRowSheet.cs" />
+    <Compile Include="Collections\IMultiRowSheet.cs" />
     <Compile Include="ColumnMoveResult.cs" />
+    <Compile Include="ISheetState.cs" />
     <Compile Include="MetFpSpread.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -76,7 +80,9 @@
     <Compile Include="Extensions\SheetViewExtensions.cs" />
     <Compile Include="KeyMapAction.cs" />
     <Compile Include="KeyMapActionManager.cs" />
+    <Compile Include="MultiRowAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateKnownMultiRowItemBase.cs" />
     <Compile Include="Validation\RowValidatorGenericBase.cs" />
     <Compile Include="Validation\RowValidatorBase.cs" />
     <Compile Include="Validation\ValidationBehavior.cs" />
