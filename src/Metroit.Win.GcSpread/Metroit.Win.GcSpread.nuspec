@@ -14,7 +14,7 @@
     <tags>Metroit winforms GrapeCity GcSpread spreadsheet</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.5">
-        <dependency id="Metroit.Windows.Forms.45" version="1.4.6.1" />
+        <dependency id="Metroit.Windows.Forms.45" version="1.5.0.0" />
       </group>
     </dependencies>
   </metadata>
