@@ -242,6 +242,11 @@
             </summary>
             <param name="row">削除するオブジェクト。</param>
         </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Clear">
+            <summary>
+            行をすべて削除します。
+            </summary>
+        </member>
         <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.GetItemIndex(System.Int32)">
             <summary>
             画面の行インデックスから、データのインデックスを求める。
@@ -339,6 +344,11 @@
             行を削除します。
             </summary>
             <param name="row">削除するアイテム。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.Clear">
+            <summary>
+            行をすべて削除します。
+            </summary>
         </member>
         <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.GetItemIndex(System.Int32)">
             <summary>

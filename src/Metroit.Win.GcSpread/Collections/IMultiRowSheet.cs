@@ -54,6 +54,11 @@ namespace Metroit.Win.GcSpread.Collections
         void RemoveRow(object row);
 
         /// <summary>
+        /// 行をすべて削除します。
+        /// </summary>
+        void Clear();
+
+        /// <summary>
         /// 画面の行インデックスから、アイテムのインデックスを取得します。
         /// </summary>
         /// <param name="index">画面の行インデックス。</param>

@@ -191,6 +191,22 @@ namespace Metroit.Win.GcSpread.Collections.Generic
         }
 
         /// <summary>
+        /// 行をすべて削除します。
+        /// </summary>
+        public void Clear()
+        {
+            if (Rows.Count == 0)
+            {
+                return;
+            }
+
+            var rowCount = ((Rows.Count - 1) * RowNumber) + RowNumber;
+
+            Sheet.Rows.Remove(0, rowCount);
+            Rows.Clear();
+        }
+
+        /// <summary>
         /// 画面の行インデックスから、データのインデックスを求める。
         /// </summary>
         /// <param name="index">画面の行インデックス。</param>
