@@ -125,6 +125,12 @@
             <param name="row">追加するアイテム。</param>
             <returns>追加されたアイテム</returns>
         </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.AddRowRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            行を追加します。
+            </summary>
+            <param name="rows">追加するアイテム。</param>
+        </member>
         <member name="M:Metroit.Win.GcSpread.Collections.Generic.IMultiRowSheet`1.RemoveRow(`0)">
             <summary>
             行を削除します。
@@ -157,6 +163,12 @@
         <member name="P:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.RowNumber">
             <summary>
             1レコードに対する行数を取得します。
+            </summary>
+        </member>
+        <member name="P:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Metroit#Win#GcSpread#Collections#IMultiRowSheet#Rows">
+            <summary>
+            アイテムデータを取得します。
+            外部からの利用は不要です。
             </summary>
         </member>
         <member name="P:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Rows">
@@ -210,6 +222,19 @@
             </summary>
             <param name="row">追加するアイテム。</param>
             <returns>追加されたアイテム</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.AddRowRange(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            行を追加します。
+            外部からの利用は不要です。
+            </summary>
+            <param name="rows">追加するアイテム。</param>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.AddRowRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            行を追加します。
+            </summary>
+            <param name="rows">追加するアイテム。</param>
         </member>
         <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.InitializeItem(`0)">
             <summary>
@@ -332,6 +357,12 @@
             </summary>
             <param name="row">追加するアイテム。</param>
             <returns>追加されたアイテム</returns>
+        </member>
+        <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.AddRowRange(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            行を追加します。
+            </summary>
+            <param name="rows">追加するアイテム。</param>
         </member>
         <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.RemoveRow(System.Int32)">
             <summary>

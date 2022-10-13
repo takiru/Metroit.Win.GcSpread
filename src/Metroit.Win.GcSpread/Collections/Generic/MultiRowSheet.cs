@@ -1,6 +1,7 @@
 ﻿using FarPoint.Win.Spread;
 using Metroit.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -31,9 +32,15 @@ namespace Metroit.Win.GcSpread.Collections.Generic
 
         /// <summary>
         /// アイテムデータを取得します。
+        /// 外部からの利用は不要です。
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        IBindingList Collections.IMultiRowSheet.Rows => Rows;
+
+        /// <summary>
+        /// アイテムデータを取得します。
         /// </summary>
         public ItemRemovedKnownList<T> Rows { get; } = new ItemRemovedKnownList<T>();
-        object Collections.IMultiRowSheet.Rows => Rows;
 
         private Action<int, Cell> CellSetup { get; }
 
@@ -128,6 +135,26 @@ namespace Metroit.Win.GcSpread.Collections.Generic
             rowAdding = false;
 
             return row;
+        }
+
+        /// <summary>
+        /// 行を追加します。
+        /// 外部からの利用は不要です。
+        /// </summary>
+        /// <param name="rows">追加するアイテム。</param>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void AddRowRange(IEnumerable<object> rows) => AddRowRange((IEnumerable<T>)rows);
+
+        /// <summary>
+        /// 行を追加します。
+        /// </summary>
+        /// <param name="rows">追加するアイテム。</param>
+        public void AddRowRange(IEnumerable<T> rows)
+        {
+            foreach (var row in rows)
+            {
+                AddRow(row);
+            }
         }
 
         /// <summary>

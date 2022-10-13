@@ -1,4 +1,5 @@
 ﻿using Metroit.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Metroit.Win.GcSpread.Collections.Generic
 {
@@ -31,6 +32,12 @@ namespace Metroit.Win.GcSpread.Collections.Generic
         /// <param name="row">追加するアイテム。</param>
         /// <returns>追加されたアイテム</returns>
         T AddRow(T row);
+
+        /// <summary>
+        /// 行を追加します。
+        /// </summary>
+        /// <param name="rows">追加するアイテム。</param>
+        void AddRowRange(IEnumerable<T> rows);
 
         /// <summary>
         /// 行を削除します。

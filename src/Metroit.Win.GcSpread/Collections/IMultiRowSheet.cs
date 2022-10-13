@@ -1,4 +1,6 @@
 ﻿using FarPoint.Win.Spread;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Metroit.Win.GcSpread.Collections
 {
@@ -20,7 +22,7 @@ namespace Metroit.Win.GcSpread.Collections
         /// <summary>
         /// アイテムデータを取得します。
         /// </summary>
-        object Rows { get; }
+        IBindingList Rows { get; }
 
         /// <summary>
         /// 新しいアイテムを生成します。
@@ -40,6 +42,12 @@ namespace Metroit.Win.GcSpread.Collections
         /// <param name="row">追加するアイテム。</param>
         /// <returns>追加されたアイテム</returns>
         object AddRow(object row);
+
+        /// <summary>
+        /// 行を追加します。
+        /// </summary>
+        /// <param name="rows">追加するアイテム。</param>
+        void AddRowRange(IEnumerable<object> rows);
 
         /// <summary>
         /// 画面の行インデックスから、行を削除します。
