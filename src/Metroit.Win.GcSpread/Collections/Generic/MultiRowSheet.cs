@@ -314,6 +314,12 @@ namespace Metroit.Win.GcSpread.Collections.Generic
                 return;
             }
 
+            // 目的のセルがない場合は処理しない
+            if (e.Row < 0 || e.Column < 0)
+            {
+                return;
+            }
+
             var item = GetItem(e.Row);
 
             // アイテムの値が変更された時の走行時は処理しない
