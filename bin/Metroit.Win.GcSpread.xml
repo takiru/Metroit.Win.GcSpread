@@ -1190,73 +1190,82 @@
             <param name="errorMessage">エラーメッセージ。</param>
             <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullBehavior(System.String)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullBehavior(System.String,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             null を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullBehavior(System.String,System.String)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullBehavior(System.String,System.String,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             null を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
             <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullBehavior(System.String,System.Int32)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullBehavior(System.String,System.Int32,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             null を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
             <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             null または 空 を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String,System.String)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String,System.String,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             null または 空 を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
             <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String,System.Int32)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotNullOrEmptyBehavior(System.String,System.Int32,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             null または 空 を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
             <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateHalfWidthCharsBehavior(System.String)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateHalfWidthCharsBehavior(System.String,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             半角英数記号以外を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateHalfWidthCharsBehavior(System.String,System.String)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateHalfWidthCharsBehavior(System.String,System.String,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             半角英数記号以外を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
             <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
-        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateHalfWidthCharsBehavior(System.String,System.Int32)">
+        <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateHalfWidthCharsBehavior(System.String,System.Int32,System.Func{FarPoint.Win.Spread.Cell,System.Boolean})">
             <summary>
             半角英数記号以外を許可しない値検証の振る舞いを生成します。
             </summary>
             <param name="name">項目名。</param>
             <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+            <param name="ignore">無視するセルの判定処理。</param>
             <returns>値検証の振る舞い。</returns>
         </member>
         <member name="M:Metroit.Win.GcSpread.Validation.ValidationBehavior.CreateNotDuplicateBehavior(System.String[],System.String,System.Func{FarPoint.Win.Spread.Row,System.Boolean})">

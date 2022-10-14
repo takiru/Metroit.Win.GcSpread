@@ -74,11 +74,21 @@ namespace Metroit.Win.GcSpread.Validation
         /// null を許可しない値検証の振る舞いを生成します。
         /// </summary>
         /// <param name="name">項目名。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullBehavior(string name)
+        public static ValidationBehavior CreateNotNullBehavior(string name, Func<Cell, bool> ignore = null)
         {
             return new ValidationBehavior(
-                (sheet, cell) => !IsNull(cell.Value),
+                (sheet, cell) =>
+                {
+                    // 無視する行は対象外
+                    if (ignore != null && ignore(cell))
+                    {
+                        return true;
+                    }
+
+                    return !IsNull(cell.Value);
+                },
                 $"{name}を入力してください。");
         }
 
@@ -87,10 +97,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullBehavior(string name, string errorDataField)
+        public static ValidationBehavior CreateNotNullBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null)
         {
-            var result = CreateNotNullBehavior(name);
+            var result = CreateNotNullBehavior(name, ignore);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -100,10 +111,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullBehavior(string name, int errorColumn)
+        public static ValidationBehavior CreateNotNullBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null)
         {
-            var result = CreateNotNullBehavior(name);
+            var result = CreateNotNullBehavior(name, ignore);
             result.SetErrorColumn(errorColumn);
             return result;
         }
@@ -112,11 +124,21 @@ namespace Metroit.Win.GcSpread.Validation
         /// null または 空 を許可しない値検証の振る舞いを生成します。
         /// </summary>
         /// <param name="name">項目名。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name)
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, Func<Cell, bool> ignore = null)
         {
             return new ValidationBehavior(
-                (sheet, cell) => !IsNullOrEmpty(cell.Value),
+                (sheet, cell) =>
+                {
+                    // 無視する行は対象外
+                    if (ignore != null && ignore(cell))
+                    {
+                        return true;
+                    }
+
+                    return !IsNullOrEmpty(cell.Value);
+                },
                 $"{name}を入力してください。");
         }
 
@@ -125,10 +147,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, string errorDataField)
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null)
         {
-            var result = CreateNotNullOrEmptyBehavior(name);
+            var result = CreateNotNullOrEmptyBehavior(name, ignore);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -138,10 +161,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, int errorColumn)
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null)
         {
-            var result = CreateNotNullOrEmptyBehavior(name);
+            var result = CreateNotNullOrEmptyBehavior(name, ignore);
             result.SetErrorColumn(errorColumn);
             return result;
         }
@@ -150,11 +174,21 @@ namespace Metroit.Win.GcSpread.Validation
         /// 半角英数記号以外を許可しない値検証の振る舞いを生成します。
         /// </summary>
         /// <param name="name">項目名。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name)
+        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, Func<Cell, bool> ignore = null)
         {
             return new ValidationBehavior(
-                (sheet, cell) => IsOnlyHalfWidthChars(cell.Value?.ToString()),
+                (sheet, cell) =>
+                {
+                    // 無視する行は対象外
+                    if (ignore != null && ignore(cell))
+                    {
+                        return true;
+                    }
+
+                    return IsOnlyHalfWidthChars(cell.Value?.ToString());
+                },
                 $"{name}に半角以外の文字が入力されています。");
         }
 
@@ -163,10 +197,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, string errorDataField)
+        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null)
         {
-            var result = CreateHalfWidthCharsBehavior(name);
+            var result = CreateHalfWidthCharsBehavior(name, ignore);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -176,10 +211,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
+        /// <param name="ignore">無視するセルの判定処理。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, int errorColumn)
+        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null)
         {
-            var result = CreateHalfWidthCharsBehavior(name);
+            var result = CreateHalfWidthCharsBehavior(name, ignore);
             result.SetErrorColumn(errorColumn);
             return result;
         }
