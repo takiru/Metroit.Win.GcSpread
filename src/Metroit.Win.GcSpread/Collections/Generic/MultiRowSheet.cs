@@ -90,17 +90,7 @@ namespace Metroit.Win.GcSpread.Collections.Generic
         /// <returns>追加された行のアイテム。</returns>
         public T AddRow()
         {
-            rowAdding = true;
-
-            var item = NewItem();
-            InitializeItem(item);
-            
-            AddActualRow(item);
-
-            Rows.Add(item);
-            rowAdding = false;
-
-            return item;
+            return AddRow(NewItem());
         }
 
         /// <summary>
