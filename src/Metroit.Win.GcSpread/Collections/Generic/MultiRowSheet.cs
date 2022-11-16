@@ -208,18 +208,17 @@ namespace Metroit.Win.GcSpread.Collections.Generic
         }
 
         /// <summary>
-        /// 行をすべて削除します。
+        /// すべての要素をクリアします。
+        /// 削除されたことは通知されません。
         /// </summary>
         public void Clear()
         {
-            if (Rows.Count == 0)
+            if (Rows.Count > 0)
             {
-                return;
+                var rowCount = ((Rows.Count - 1) * RowNumber) + RowNumber;
+                Sheet.Rows.Remove(0, rowCount);
             }
 
-            var rowCount = ((Rows.Count - 1) * RowNumber) + RowNumber;
-
-            Sheet.Rows.Remove(0, rowCount);
             Rows.Clear();
         }
 

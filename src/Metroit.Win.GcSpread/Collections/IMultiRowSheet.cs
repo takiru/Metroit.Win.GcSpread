@@ -62,7 +62,8 @@ namespace Metroit.Win.GcSpread.Collections
         void RemoveRow(object row);
 
         /// <summary>
-        /// 行をすべて削除します。
+        /// すべての要素をクリアします。
+        /// 削除されたことは通知されません。
         /// </summary>
         void Clear();
 

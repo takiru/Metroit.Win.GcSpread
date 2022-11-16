@@ -269,7 +269,8 @@
         </member>
         <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.Clear">
             <summary>
-            行をすべて削除します。
+            すべての要素をクリアします。
+            削除されたことは通知されません。
             </summary>
         </member>
         <member name="M:Metroit.Win.GcSpread.Collections.Generic.MultiRowSheet`1.GetItemIndex(System.Int32)">
@@ -378,7 +379,8 @@
         </member>
         <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.Clear">
             <summary>
-            行をすべて削除します。
+            すべての要素をクリアします。
+            削除されたことは通知されません。
             </summary>
         </member>
         <member name="M:Metroit.Win.GcSpread.Collections.IMultiRowSheet.GetItemIndex(System.Int32)">
