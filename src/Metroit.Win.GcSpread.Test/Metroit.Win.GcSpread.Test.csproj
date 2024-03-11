@@ -84,17 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Metroit.Win.GcSpread\Metroit.Win.GcSpread.csproj">
-      <Project>{FFCA6A8D-E4E8-472F-ADDB-FDBAB8A6AA25}</Project>
+      <Project>{96d8200c-4193-4ca5-8faa-f4c70089c1d0}</Project>
       <Name>Metroit.Win.GcSpread</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="GrapeCity.Spread.WinForms.ja">
-      <Version>15.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Metroit.Windows.Forms.45">
-      <Version>1.5.0.3</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

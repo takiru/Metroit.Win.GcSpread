@@ -59,7 +59,7 @@ namespace Metroit.Win.GcSpread
 
         /// <summary>
         /// 設定されたキーマップ制御を実行します。
-        /// force = false の時、行、列、セルのいずれかがロックされている場合はキーマップ制御は動作しません。
+        /// ignoreLock = false の時、行、列、セルのいずれかがロックされている場合はキーマップ制御は動作しません。
         /// </summary>
         /// <param name="keyData">キーデータ。</param>
         /// <param name="cell">Cell オブジェクト。</param>
