@@ -1,17 +1,16 @@
-﻿
-namespace Metroit.Win.GcSpread.Test
+﻿namespace Metroit.Win.GcSpread.Test
 {
     partial class Form1
     {
         /// <summary>
-        /// 必要なデザイナー変数です。
+        ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 使用中のリソースをすべてクリーンアップします。
+        ///  Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,20 +20,20 @@ namespace Metroit.Win.GcSpread.Test
             base.Dispose(disposing);
         }
 
-        #region Windows フォーム デザイナーで生成されたコード
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// デザイナー サポートに必要なメソッドです。このメソッドの内容を
-        /// コード エディターで変更しないでください。
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType gcComboBoxCellType1 = new GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType();
-            GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo dropDownButtonInfo1 = new GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo();
-            GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType gcComboBoxCellType2 = new GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType();
-            GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo dropDownButtonInfo2 = new GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo();
-            GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType gcComboBoxCellType3 = new GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType();
-            GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo dropDownButtonInfo3 = new GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo();
+            GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType gcComboBoxCellType7 = new GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType();
+            GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo dropDownButtonInfo7 = new GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo();
+            GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType gcComboBoxCellType8 = new GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType();
+            GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo dropDownButtonInfo8 = new GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo();
+            GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType gcComboBoxCellType9 = new GrapeCity.Win.Spread.InputMan.CellType.GcComboBoxCellType();
+            GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo dropDownButtonInfo9 = new GrapeCity.Win.Spread.InputMan.CellType.DropDownButtonInfo();
             this.metFpSpread1 = new Metroit.Win.GcSpread.MetFpSpread();
             this.metFpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
             ((System.ComponentModel.ISupportInitialize)(this.metFpSpread1)).BeginInit();
@@ -46,6 +45,7 @@ namespace Metroit.Win.GcSpread.Test
             this.metFpSpread1.AccessibleDescription = "metFpSpread1, Sheet1, Row 0, Column 0";
             this.metFpSpread1.AutoOpenDropDown = true;
             this.metFpSpread1.Location = new System.Drawing.Point(187, 93);
+            this.metFpSpread1.MessageBoxCaption = "SPREADデザイナ";
             this.metFpSpread1.Name = "metFpSpread1";
             this.metFpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.metFpSpread1_Sheet1});
@@ -59,33 +59,37 @@ namespace Metroit.Win.GcSpread.Test
             // Formulas and custom names must be loaded with R1C1 reference style
             this.metFpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
             this.metFpSpread1_Sheet1.Cells.Get(0, 0).Value = "a";
-            gcComboBoxCellType1.BackgroundImage = new FarPoint.Win.Picture(null, FarPoint.Win.RenderStyle.Normal, System.Drawing.Color.Empty, 0, FarPoint.Win.HorizontalAlignment.Left, FarPoint.Win.VerticalAlignment.Top);
-            gcComboBoxCellType1.ClearCollection = true;
-            gcComboBoxCellType1.DropDownMaxHeight = null;
-            gcComboBoxCellType1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            gcComboBoxCellType1.EllipsisString = "...";
-            gcComboBoxCellType1.ListHeaderPane.Height = 19;
-            gcComboBoxCellType1.ShortcutKeys.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry[] {
+            gcComboBoxCellType7.BackgroundImage = new FarPoint.Win.Picture(null, FarPoint.Win.RenderStyle.Normal, System.Drawing.Color.Empty, 0, FarPoint.Win.HorizontalAlignment.Left, FarPoint.Win.VerticalAlignment.Top);
+            gcComboBoxCellType7.ClearCollection = true;
+            gcComboBoxCellType7.DropDownMaxHeight = null;
+            gcComboBoxCellType7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            gcComboBoxCellType7.EllipsisString = "...";
+            gcComboBoxCellType7.ListHeaderPane.Height = 19;
+            gcComboBoxCellType7.ShortcutKeys.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry[] {
             new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry(System.Windows.Forms.Keys.F2, "ShortcutClear"),
             new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry(((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Return))), "ApplyRecommendedValue")});
-            gcComboBoxCellType1.SideButtons.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.SideButtonBaseInfo[] {
-            dropDownButtonInfo1});
-            this.metFpSpread1_Sheet1.Cells.Get(1, 3).CellType = gcComboBoxCellType1;
-            gcComboBoxCellType2.BackgroundImage = new FarPoint.Win.Picture(null, FarPoint.Win.RenderStyle.Normal, System.Drawing.Color.Empty, 0, FarPoint.Win.HorizontalAlignment.Left, FarPoint.Win.VerticalAlignment.Top);
-            gcComboBoxCellType2.ClearCollection = true;
-            gcComboBoxCellType2.DropDownMaxHeight = null;
-            gcComboBoxCellType2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            gcComboBoxCellType2.EllipsisString = "...";
-            gcComboBoxCellType2.ListHeaderPane.Height = 19;
-            gcComboBoxCellType2.ShortcutKeys.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry[] {
+            gcComboBoxCellType7.SideButtons.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.SideButtonBaseInfo[] {
+            dropDownButtonInfo7});
+            this.metFpSpread1_Sheet1.Cells.Get(1, 3).CellType = gcComboBoxCellType7;
+            gcComboBoxCellType8.BackgroundImage = new FarPoint.Win.Picture(null, FarPoint.Win.RenderStyle.Normal, System.Drawing.Color.Empty, 0, FarPoint.Win.HorizontalAlignment.Left, FarPoint.Win.VerticalAlignment.Top);
+            gcComboBoxCellType8.ClearCollection = true;
+            gcComboBoxCellType8.DropDownMaxHeight = null;
+            gcComboBoxCellType8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            gcComboBoxCellType8.EllipsisString = "...";
+            gcComboBoxCellType8.ListHeaderPane.Height = 19;
+            gcComboBoxCellType8.ShortcutKeys.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry[] {
             new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry(System.Windows.Forms.Keys.F2, "ShortcutClear"),
             new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry(((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Return))), "ApplyRecommendedValue")});
-            gcComboBoxCellType2.SideButtons.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.SideButtonBaseInfo[] {
-            dropDownButtonInfo2});
-            this.metFpSpread1_Sheet1.Cells.Get(1, 4).CellType = gcComboBoxCellType2;
+            gcComboBoxCellType8.SideButtons.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.SideButtonBaseInfo[] {
+            dropDownButtonInfo8});
+            this.metFpSpread1_Sheet1.Cells.Get(1, 4).CellType = gcComboBoxCellType8;
             this.metFpSpread1_Sheet1.Cells.Get(1, 4).Locked = true;
+            this.metFpSpread1_Sheet1.ColumnFooter.DefaultStyle.BackColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.ColumnFooter.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.ColumnFooter.DefaultStyle.Locked = false;
             this.metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.BackColor = System.Drawing.Color.Empty;
             this.metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.ForeColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.Locked = false;
             this.metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.Parent = "CornerDefaultEnhanced";
             this.metFpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 2).Value = "LockColumn";
             this.metFpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 4).Locked = false;
@@ -94,18 +98,18 @@ namespace Metroit.Win.GcSpread.Test
             this.metFpSpread1_Sheet1.ColumnHeader.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
             this.metFpSpread1_Sheet1.ColumnHeader.DefaultStyle.Locked = false;
             this.metFpSpread1_Sheet1.ColumnHeader.DefaultStyle.Parent = "ColumnHeaderDefaultEnhanced";
-            gcComboBoxCellType3.BackgroundImage = new FarPoint.Win.Picture(null, FarPoint.Win.RenderStyle.Normal, System.Drawing.Color.Empty, 0, FarPoint.Win.HorizontalAlignment.Left, FarPoint.Win.VerticalAlignment.Top);
-            gcComboBoxCellType3.ClearCollection = true;
-            gcComboBoxCellType3.DropDownMaxHeight = null;
-            gcComboBoxCellType3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            gcComboBoxCellType3.EllipsisString = "...";
-            gcComboBoxCellType3.ListHeaderPane.Height = 19;
-            gcComboBoxCellType3.ShortcutKeys.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry[] {
+            gcComboBoxCellType9.BackgroundImage = new FarPoint.Win.Picture(null, FarPoint.Win.RenderStyle.Normal, System.Drawing.Color.Empty, 0, FarPoint.Win.HorizontalAlignment.Left, FarPoint.Win.VerticalAlignment.Top);
+            gcComboBoxCellType9.ClearCollection = true;
+            gcComboBoxCellType9.DropDownMaxHeight = null;
+            gcComboBoxCellType9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            gcComboBoxCellType9.EllipsisString = "...";
+            gcComboBoxCellType9.ListHeaderPane.Height = 19;
+            gcComboBoxCellType9.ShortcutKeys.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry[] {
             new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry(System.Windows.Forms.Keys.F2, "ShortcutClear"),
             new GrapeCity.Win.Spread.InputMan.CellType.ShortcutDictionaryEntry(((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Return))), "ApplyRecommendedValue")});
-            gcComboBoxCellType3.SideButtons.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.SideButtonBaseInfo[] {
-            dropDownButtonInfo3});
-            this.metFpSpread1_Sheet1.Columns.Get(1).CellType = gcComboBoxCellType3;
+            gcComboBoxCellType9.SideButtons.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.SideButtonBaseInfo[] {
+            dropDownButtonInfo9});
+            this.metFpSpread1_Sheet1.Columns.Get(1).CellType = gcComboBoxCellType9;
             this.metFpSpread1_Sheet1.Columns.Get(2).Label = "LockColumn";
             this.metFpSpread1_Sheet1.Columns.Get(2).Locked = true;
             this.metFpSpread1_Sheet1.Columns.Get(2).Width = 82F;
@@ -115,12 +119,22 @@ namespace Metroit.Win.GcSpread.Test
             this.metFpSpread1_Sheet1.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
             this.metFpSpread1_Sheet1.DefaultStyle.Locked = false;
             this.metFpSpread1_Sheet1.DefaultStyle.Parent = "DataAreaDefault";
+            this.metFpSpread1_Sheet1.FilterBar.DefaultStyle.BackColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.FilterBar.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.FilterBar.DefaultStyle.Locked = false;
+            this.metFpSpread1_Sheet1.FilterBarHeaderStyle.BackColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.FilterBarHeaderStyle.ForeColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.FilterBarHeaderStyle.Locked = false;
             this.metFpSpread1_Sheet1.Protect = true;
             this.metFpSpread1_Sheet1.RowHeader.Columns.Default.Resizable = false;
             this.metFpSpread1_Sheet1.RowHeader.DefaultStyle.BackColor = System.Drawing.Color.Empty;
             this.metFpSpread1_Sheet1.RowHeader.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
             this.metFpSpread1_Sheet1.RowHeader.DefaultStyle.Locked = false;
             this.metFpSpread1_Sheet1.RowHeader.DefaultStyle.Parent = "RowHeaderDefaultEnhanced";
+            this.metFpSpread1_Sheet1.SheetCornerStyle.BackColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.SheetCornerStyle.ForeColor = System.Drawing.Color.Empty;
+            this.metFpSpread1_Sheet1.SheetCornerStyle.Locked = false;
+            this.metFpSpread1_Sheet1.SheetCornerStyle.VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
             this.metFpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
             // 
             // Form1
@@ -135,7 +149,6 @@ namespace Metroit.Win.GcSpread.Test
             ((System.ComponentModel.ISupportInitialize)(this.metFpSpread1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metFpSpread1_Sheet1)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -144,4 +157,3 @@ namespace Metroit.Win.GcSpread.Test
         private FarPoint.Win.Spread.SheetView metFpSpread1_Sheet1;
     }
 }
-

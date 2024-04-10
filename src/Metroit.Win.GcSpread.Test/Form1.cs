@@ -1,13 +1,3 @@
-ï»¿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace Metroit.Win.GcSpread.Test
 {
     public partial class Form1 : Form
@@ -15,6 +5,38 @@ namespace Metroit.Win.GcSpread.Test
         public Form1()
         {
             InitializeComponent();
+
+            metFpSpread1.KeyMapActionInitializing += MetFpSpread1_KeyMapActionInitializing;
+            metFpSpread1.SearchDialogClosing += MetFpSpread1_SearchDialogClosing; ;
+        }
+
+        private void MetFpSpread1_KeyMapActionInitializing(object sender, KeyMapActionInitializingEventArgs e)
+        {
+            // Ctrl+F ‚ÅŒŸõƒ_ƒCƒAƒƒO‚ğ•\¦‚·‚é
+            e.Manager.KeyMapActions.Add(new KeyMapAction(
+                new[] { (Keys.Control | Keys.F) },
+                (cell) =>
+                {
+                    if (metFpSpread1.SearchDialog == null)
+                    {
+                        metFpSpread1.SearchWithDialog("");
+                    }
+                    else
+                    {
+                        // Šù‚É•\¦‚µ‚Ä‚¢‚½‚çƒAƒNƒeƒBƒu‚É‚·‚é
+                        metFpSpread1.SearchDialog.Activate();
+                    }
+                },
+                (cell) => true
+            ));
+        }
+
+        private void MetFpSpread1_SearchDialogClosing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBox.Show("Execute SearchDialogClosing");
+
+            // ƒ_ƒCƒAƒƒO‚ğ•Â‚¶‚é‚Ì‚ğ‹‘”Û‚·‚é
+            //e.Cancel = true;
         }
     }
 }
