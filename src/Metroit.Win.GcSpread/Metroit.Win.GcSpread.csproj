@@ -8,7 +8,7 @@
     <Authors>Takeru Yamaguchi</Authors>
     <Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
     <Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-    <VersionPrefix>17.0.1.0</VersionPrefix>
+    <VersionPrefix>17.0.2.0</VersionPrefix>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
@@ -18,10 +18,9 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName).ja</PackageId>
-    <PackageReleaseNotes>- 依存するパッケージを最適化しました。
-- 複数行1レコードに関するクラスを廃止し、Metroit.Win.GcSpread.ja.MultiRow に移管しました。
-- AllowSheetMultiSelect, AllowSheetCopy, CustomSearchDialog プロパティを追加しました。
-- SearchWithCustomDialog&lt;T&gt;() メソッドを追加しました。</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      - Cell, Row, Column に GetCellType(), CopyCellType() を追加しました。
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
