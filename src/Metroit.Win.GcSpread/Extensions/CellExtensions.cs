@@ -109,5 +109,25 @@ namespace Metroit.Win.GcSpread.Extensions
 
             return cell.GetSheet().DefaultStyle.CellType;
         }
+
+        /// <summary>
+        /// 実際に有効となっているセルタイプをコピーします。
+        /// </summary>
+        /// <param name="cell">Cell オブジェクト。</param>
+        /// <returns>コピーされたセルタイプ。</returns>
+        /// <remarks>
+        /// Cell.CellType, Row.CellType, Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプをコピーします。<br/>
+        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// </remarks>
+        public static ICellType CopyCellType(this Cell cell)
+        {
+            var cellType = GetCellType(cell);
+            if (cellType == null)
+            {
+                return null;
+            }
+
+            return (BaseCellType)((BaseCellType)cellType).Clone();
+        }
     }
 }

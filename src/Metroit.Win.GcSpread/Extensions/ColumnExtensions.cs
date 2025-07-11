@@ -1,4 +1,5 @@
 ﻿using FarPoint.Win.Spread;
+using FarPoint.Win.Spread.CellType;
 using System.Reflection;
 
 namespace Metroit.Win.GcSpread.Extensions
@@ -17,6 +18,45 @@ namespace Metroit.Win.GcSpread.Extensions
         {
             var pi = column.GetType().GetProperty("SheetView", BindingFlags.Instance | BindingFlags.NonPublic);
             return (SheetView)pi.GetValue(column);
+        }
+
+        /// <summary>
+        /// 実際に有効となっているセルタイプを取得します。
+        /// </summary>
+        /// <param name="column">Column オブジェクト。</param>
+        /// <returns>実際に有効となっているセルタイプ。</returns>
+        /// <remarks>
+        /// Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプを返却します。<br/>
+        /// すべてのセルタイプが null の場合、null が返却されますが、その値は SheetView.DefaultStyle.CellType になります。
+        /// </remarks>
+        public static ICellType GetCellType(this Column column)
+        {
+            if (column.CellType != null)
+            {
+                return column.CellType;
+            }
+
+            return column.GetSheet().DefaultStyle.CellType;
+        }
+
+        /// <summary>
+        /// 実際に有効となっているセルタイプをコピーします。
+        /// </summary>
+        /// <param name="column">Column オブジェクト。</param>
+        /// <returns>コピーされたセルタイプ。</returns>
+        /// <remarks>
+        /// Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプをコピーします。<br/>
+        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// </remarks>
+        public static ICellType CopyCellType(this Column column)
+        {
+            var cellType = GetCellType(column);
+            if (cellType == null)
+            {
+                return null;
+            }
+
+            return (BaseCellType)((BaseCellType)cellType).Clone();
         }
     }
 }
