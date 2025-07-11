@@ -1,4 +1,5 @@
 ﻿using FarPoint.Win.Spread;
+using FarPoint.Win.Spread.CellType;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -78,6 +79,35 @@ namespace Metroit.Win.GcSpread.Extensions
         public static void LockCell(this Cell cell, bool locked, Func<Cell, bool> lockCondition = null)
         {
             LockCell(cell, locked, new List<Func<Cell, bool>>() { lockCondition });
+        }
+
+        /// <summary>
+        /// 実際に有効となっているセルタイプを取得します。
+        /// </summary>
+        /// <param name="cell">Cell オブジェクト。</param>
+        /// <returns>実際に有効となっているセルタイプ。</returns>
+        /// <remarks>
+        /// Cell.CellType, Row.CellType, Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプを返却します。<br/>
+        /// すべてのセルタイプが null の場合、null が返却されますが、その値は SheetView.DefaultStyle.CellType になります。
+        /// </remarks>
+        public static ICellType GetCellType(this Cell cell)
+        {
+            if (cell.CellType != null)
+            {
+                return cell.CellType;
+            }
+
+            if (cell.Row.CellType != null)
+            {
+                return cell.Row.CellType;
+            }
+
+            if (cell.Column.CellType != null)
+            {
+                return cell.Column.CellType;
+            }
+
+            return cell.GetSheet().DefaultStyle.CellType;
         }
     }
 }
