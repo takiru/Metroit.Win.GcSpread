@@ -88,7 +88,7 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <returns>実際に有効となっているセルタイプ。</returns>
         /// <remarks>
         /// Cell.CellType, Row.CellType, Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプを返却します。<br/>
-        /// すべてのセルタイプが null の場合、null が返却されますが、その値は SheetView.DefaultStyle.CellType になります。
+        /// すべてのセルタイプが null の場合、null が返却されます。
         /// </remarks>
         public static ICellType GetCellType(this Cell cell)
         {
@@ -127,7 +127,7 @@ namespace Metroit.Win.GcSpread.Extensions
                 return null;
             }
 
-            return (BaseCellType)((BaseCellType)cellType).Clone();
+            return (ICellType)((BaseCellType)cellType).Clone();
         }
     }
 }
