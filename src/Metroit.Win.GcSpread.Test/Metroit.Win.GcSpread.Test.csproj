@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Metroit.Win.GcSpread\Metroit.Win.GcSpread.csproj" />
   </ItemGroup>
 

@@ -1,5 +1,5 @@
-using FarPoint.Win.Spread.CellType;
-using GrapeCity.Win.Spread.InputMan.CellType;
+using FarPoint.Win;
+using FarPoint.Win.Spread;
 using Metroit.Win.GcSpread.Extensions;
 
 namespace Metroit.Win.GcSpread.Test
@@ -11,7 +11,20 @@ namespace Metroit.Win.GcSpread.Test
             InitializeComponent();
 
             metFpSpread1.KeyMapActionInitializing += MetFpSpread1_KeyMapActionInitializing;
-            metFpSpread1.SearchDialogClosing += MetFpSpread1_SearchDialogClosing; ;
+            metFpSpread1.SearchDialogClosing += MetFpSpread1_SearchDialogClosing;
+
+
+
+            var sheet = fpSpread1.Sheets[0];
+
+            sheet.AlternatingRows.Count = 2;
+            sheet.AlternatingRows[0].BackColor = Color.Red;
+            sheet.AlternatingRows[1].BackColor = Color.Green;
+
+            var a = Serializer.GetObjectXml(sheet, "hoge");
+            var b = (SheetView)Serializer.LoadObjectXml(typeof(SheetView), a, "hoge");
+            b.SheetName = "Hoge";
+            fpSpread1.Sheets.Add(b);
         }
 
         private void MetFpSpread1_KeyMapActionInitializing(object sender, KeyMapActionInitializingEventArgs e)
@@ -45,12 +58,17 @@ namespace Metroit.Win.GcSpread.Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(metFpSpread1.ActiveSheet.Cells[2, 7].GetCellType()?.ToString() ?? "null");
+            MessageBox.Show($"Cells[0, 0] = {metFpSpread1.ActiveSheet.Cells[0, 0].GetActualCellType()?.ToString() ?? "null"}");
+            MessageBox.Show($"Cells[2, 6] = {metFpSpread1.ActiveSheet.Cells[2, 6].GetActualCellType()?.ToString() ?? "null"}");
+            MessageBox.Show($"Cells[3, 6] = {metFpSpread1.ActiveSheet.Cells[3, 6].GetActualCellType()?.ToString() ?? "null"}");
+            MessageBox.Show($"Cells[4, 6] = {metFpSpread1.ActiveSheet.Cells[4, 6].GetActualCellType()?.ToString() ?? "null"}");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            metFpSpread1.ActiveSheet.Cells[6, 7].CellType = metFpSpread1.ActiveSheet.Cells[5, 7].CopyCellType();
+            metFpSpread1.ActiveSheet.Cells[6, 7].CellType = metFpSpread1.ActiveSheet.Cells[5, 7].CopyActualCellType();
+            MessageBox.Show($"Cells[5, 7] = {metFpSpread1.ActiveSheet.Cells[5, 7].GetActualCellType()?.ToString() ?? "null"}");
+            MessageBox.Show($"Cells[6, 7] = {metFpSpread1.ActiveSheet.Cells[6, 7].GetActualCellType()?.ToString() ?? "null"}");
         }
     }
 }

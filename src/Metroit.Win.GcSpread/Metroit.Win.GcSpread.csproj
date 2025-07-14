@@ -8,7 +8,7 @@
     <Authors>Takeru Yamaguchi</Authors>
     <Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
     <Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-    <VersionPrefix>17.0.2.0</VersionPrefix>
+    <VersionPrefix>17.2.0.0</VersionPrefix>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
@@ -19,11 +19,11 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName).ja</PackageId>
     <PackageReleaseNotes>
-      - Cell, Row, Column に GetCellType(), CopyCellType() を追加しました。
+      - Cell, Row, Column に GetActualCellType(), CopyActualCellType() を追加しました。
     </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.0.0" />
+    <PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.2.0" />
   </ItemGroup>
 </Project>

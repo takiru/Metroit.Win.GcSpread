@@ -248,7 +248,7 @@ namespace Metroit.Win.GcSpread.Extensions
         /// Row.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプを返却します。<br/>
         /// すべてのセルタイプが null の場合、null が返却されます。
         /// </remarks>
-        public static ICellType GetCellType(this Row row)
+        public static ICellType GetActualCellType(this Row row)
         {
             if (row.CellType != null)
             {
@@ -267,9 +267,9 @@ namespace Metroit.Win.GcSpread.Extensions
         /// Row.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプをコピーします。<br/>
         /// すべてのセルタイプが null の場合、null が返却されます。
         /// </remarks>
-        public static ICellType CopyCellType(this Row row)
+        public static ICellType CopyActualCellType(this Row row)
         {
-            var cellType = GetCellType(row);
+            var cellType = GetActualCellType(row);
             if (cellType == null)
             {
                 return null;

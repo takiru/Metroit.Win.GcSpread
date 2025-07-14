@@ -42,12 +42,16 @@
             FarPoint.Win.Spread.CellType.ComboBoxCellType comboBoxCellType1 = new FarPoint.Win.Spread.CellType.ComboBoxCellType();
             FarPoint.Win.Spread.CellType.CheckBoxCellType checkBoxCellType1 = new FarPoint.Win.Spread.CellType.CheckBoxCellType();
             FarPoint.Win.Spread.CellType.CheckBoxCellType checkBoxCellType2 = new FarPoint.Win.Spread.CellType.CheckBoxCellType();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             metFpSpread1 = new MetFpSpread();
             metFpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
             button1 = new Button();
             button2 = new Button();
+            fpSpread1 = new FarPoint.Win.Spread.FpSpread(FarPoint.Win.Spread.LegacyBehaviors.None, resources.GetObject("resource1"));
+            fpSpread1_Sheet1 = fpSpread1.GetSheet(0);
             ((System.ComponentModel.ISupportInitialize)metFpSpread1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)metFpSpread1_Sheet1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fpSpread1).BeginInit();
             SuspendLayout();
             // 
             // metFpSpread1
@@ -117,18 +121,12 @@
             gcNumberCellType1.SideButtons.AddRange(new GrapeCity.Win.Spread.InputMan.CellType.SideButtonBaseInfo[] { dropDownButtonInfo3 });
             metFpSpread1_Sheet1.Cells.Get(5, 7).CellType = gcNumberCellType1;
             metFpSpread1_Sheet1.Cells.Get(5, 7).Value = new decimal(new int[] { 1234, 0, 0, 0 });
-            metFpSpread1_Sheet1.ColumnFooter.DefaultStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.ColumnFooter.DefaultStyle.ForeColor = Color.Empty;
             metFpSpread1_Sheet1.ColumnFooter.DefaultStyle.Locked = false;
-            metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.ForeColor = Color.Empty;
             metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.Locked = false;
             metFpSpread1_Sheet1.ColumnFooterSheetCornerStyle.Parent = "CornerDefaultEnhanced";
             metFpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 2).Value = "LockColumn";
             metFpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 4).Locked = false;
             metFpSpread1_Sheet1.ColumnHeader.Cells.Get(0, 4).Value = "LockCell";
-            metFpSpread1_Sheet1.ColumnHeader.DefaultStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.ColumnHeader.DefaultStyle.ForeColor = Color.Empty;
             metFpSpread1_Sheet1.ColumnHeader.DefaultStyle.Locked = false;
             metFpSpread1_Sheet1.ColumnHeader.DefaultStyle.Parent = "ColumnHeaderDefaultEnhanced";
             gcComboBoxCellType3.BackgroundImage = new FarPoint.Win.Picture(null, FarPoint.Win.RenderStyle.Normal, Color.Empty, 0, FarPoint.Win.HorizontalAlignment.Left, FarPoint.Win.VerticalAlignment.Top);
@@ -149,55 +147,56 @@
             comboBoxCellType1.ButtonAlign = FarPoint.Win.ButtonAlign.Right;
             metFpSpread1_Sheet1.Columns.Get(6).CellType = comboBoxCellType1;
             metFpSpread1_Sheet1.Columns.Get(7).Width = 71F;
-            metFpSpread1_Sheet1.DefaultStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.DefaultStyle.ForeColor = Color.Empty;
             metFpSpread1_Sheet1.DefaultStyle.Locked = false;
-            metFpSpread1_Sheet1.DefaultStyle.Parent = "DataAreaDefault";
-            metFpSpread1_Sheet1.FilterBar.DefaultStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.FilterBar.DefaultStyle.ForeColor = Color.Empty;
+            metFpSpread1_Sheet1.DefaultStyle.Parent = "";
             metFpSpread1_Sheet1.FilterBar.DefaultStyle.Locked = false;
-            metFpSpread1_Sheet1.FilterBarHeaderStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.FilterBarHeaderStyle.ForeColor = Color.Empty;
+            metFpSpread1_Sheet1.FilterBar.DefaultStyle.Parent = "";
             metFpSpread1_Sheet1.FilterBarHeaderStyle.Locked = false;
+            metFpSpread1_Sheet1.FilterBarHeaderStyle.Parent = "";
             metFpSpread1_Sheet1.Protect = true;
             metFpSpread1_Sheet1.RowHeader.Columns.Default.Resizable = false;
-            metFpSpread1_Sheet1.RowHeader.DefaultStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.RowHeader.DefaultStyle.ForeColor = Color.Empty;
             metFpSpread1_Sheet1.RowHeader.DefaultStyle.Locked = false;
             metFpSpread1_Sheet1.RowHeader.DefaultStyle.Parent = "RowHeaderDefaultEnhanced";
             metFpSpread1_Sheet1.Rows.Get(3).CellType = checkBoxCellType1;
             metFpSpread1_Sheet1.Rows.Get(4).CellType = checkBoxCellType2;
-            metFpSpread1_Sheet1.SheetCornerStyle.BackColor = Color.Empty;
-            metFpSpread1_Sheet1.SheetCornerStyle.ForeColor = Color.Empty;
             metFpSpread1_Sheet1.SheetCornerStyle.Locked = false;
             metFpSpread1_Sheet1.SheetCornerStyle.VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
             metFpSpread1_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
             // 
             // button1
             // 
-            button1.Location = new Point(498, 33);
+            button1.Location = new Point(595, 51);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(122, 23);
             button1.TabIndex = 1;
-            button1.Text = "button1";
+            button1.Text = "GetActualCellType";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(616, 59);
+            button2.Location = new Point(595, 80);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(122, 23);
             button2.TabIndex = 2;
-            button2.Text = "button2";
+            button2.Text = "CopyActualCellType";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // fpSpread1
+            // 
+            fpSpread1.AccessibleDescription = "";
+            fpSpread1.Location = new Point(50, 21);
+            fpSpread1.Name = "fpSpread1";
+            fpSpread1.Size = new Size(392, 244);
+            fpSpread1.TabIndex = 3;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 562);
+            Controls.Add(fpSpread1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(metFpSpread1);
@@ -207,6 +206,7 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)metFpSpread1).EndInit();
             ((System.ComponentModel.ISupportInitialize)metFpSpread1_Sheet1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fpSpread1).EndInit();
             ResumeLayout(false);
         }
 
@@ -216,5 +216,7 @@
         private FarPoint.Win.Spread.SheetView metFpSpread1_Sheet1;
         private Button button1;
         private Button button2;
+        private FarPoint.Win.Spread.FpSpread fpSpread1;
+        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
     }
 }
