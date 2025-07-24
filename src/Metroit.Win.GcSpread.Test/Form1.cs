@@ -12,19 +12,6 @@ namespace Metroit.Win.GcSpread.Test
 
             metFpSpread1.KeyMapActionInitializing += MetFpSpread1_KeyMapActionInitializing;
             metFpSpread1.SearchDialogClosing += MetFpSpread1_SearchDialogClosing;
-
-
-
-            var sheet = fpSpread1.Sheets[0];
-
-            sheet.AlternatingRows.Count = 2;
-            sheet.AlternatingRows[0].BackColor = Color.Red;
-            sheet.AlternatingRows[1].BackColor = Color.Green;
-
-            var a = Serializer.GetObjectXml(sheet, "hoge");
-            var b = (SheetView)Serializer.LoadObjectXml(typeof(SheetView), a, "hoge");
-            b.SheetName = "Hoge";
-            fpSpread1.Sheets.Add(b);
         }
 
         private void MetFpSpread1_KeyMapActionInitializing(object sender, KeyMapActionInitializingEventArgs e)

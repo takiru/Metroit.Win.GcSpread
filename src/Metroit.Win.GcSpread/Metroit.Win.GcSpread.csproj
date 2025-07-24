@@ -8,7 +8,7 @@
     <Authors>Takeru Yamaguchi</Authors>
     <Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
     <Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-    <VersionPrefix>17.2.0.0</VersionPrefix>
+    <VersionPrefix>17.2.0.1</VersionPrefix>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
@@ -19,7 +19,22 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName).ja</PackageId>
     <PackageReleaseNotes>
-      - Cell, Row, Column に GetActualCellType(), CopyActualCellType() を追加しました。
+      CellExtensions
+      - GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
+      - CanEditable() で Static プロパティを有しているセルタイプも検証に含めるよう修正。
+      - GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
+      - CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
+
+      ColumnExtensions
+      - GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
+      - GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
+      - CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
+
+      RowExtensions
+      - GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
+      - CanEditable() で GetStyleInfo() から得られた Locked で検証するよう修正。
+      - GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
+      - CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
     </PackageReleaseNotes>
   </PropertyGroup>
 

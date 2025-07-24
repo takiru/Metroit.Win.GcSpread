@@ -19,7 +19,9 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <returns>行が所属している SheetView。</returns>
         public static SheetView GetSheet(this Row row)
         {
-            var pi = row.GetType().GetProperty("SheetView", BindingFlags.Instance | BindingFlags.NonPublic);
+            var pi = row.GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
+                .Where(x => typeof(SheetView).IsAssignableFrom(x.PropertyType))
+                .First();
             return (SheetView)pi.GetValue(row);
         }
 
@@ -157,7 +159,6 @@ namespace Metroit.Win.GcSpread.Extensions
             row.GetSheet().SetActiveCellWithFocusFromDataField(row.Index, dataField, verticalPosition, horizontalPosition);
         }
 
-
         /// <summary>
         /// 条件に応じたセルのロックを制御します。
         /// </summary>
@@ -188,21 +189,37 @@ namespace Metroit.Win.GcSpread.Extensions
         /// 行が編集可能かどうか取得します。
         /// </summary>
         /// <param name="row">Row オブジェクト。</param>
-        /// <returns>true:編集可能, false:編集不可。</returns>
+        /// <returns>編集可能な場合は true, それ以外は false を返却します。</returns>
+        /// <remarks>
+        /// <see cref="SheetView.Protect"/> が true で、<paramref name="row"/> の <see cref="BaseStyleInfo.Locked"/> が true の場合は編集不可とみなします。<br/>
+        /// いずれにも満たないとき、編集可能とみなします。
+        /// </remarks>
         public static bool CanEditable(this Row row)
         {
-            return !(row.GetSheet().Protect && row.Locked);
+             // シートがプロテクトされていて、行のロック状態がロックされている場合は編集不可
+            var sheet = row.GetSheet();
+            var rowLocked = sheet.GetStyleInfo(row.Index, -1).Locked;
+            if (sheet.Protect && rowLocked)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
         /// 行が空行かどうかを取得します。
-        /// セルの Value プロパティが null,  Text プロパティ が String.Empty, Text プロパティ が null の場合に空とみなします。
-        /// 検証する列はデータソースではなく、シート上に存在する列です。
         /// </summary>
         /// <param name="row">Row オブジェクト。</param>
         /// <param name="ignoreDataFields">検証を無視する DataField 値。</param>
         /// <param name="validateHiddenColumn">非表示列も検証するかどうか。</param>
-        /// <returns>true:空行, false:空行ではない。</returns>
+        /// <returns>空行の場合は true, それ以外は false を返却します。</returns>
+        /// <remarks>
+        /// <see cref="Cell.Value"/> が null でないときは非空行とみなします。<br/>
+        /// <see cref="Cell.Text"/> が null でないときは非空行とみなします。<br/>
+        /// <see cref="Cell.Text"/> が <see cref="string.Empty"/> でないときは非空行とみなします。<br/>
+        /// いずれにも満たないとき、空行とみなします。
+        /// </remarks>
         public static bool IsEmptyRow(this Row row, string[] ignoreDataFields = null, bool validateHiddenColumn = true)
         {
             var sheet = row.GetSheet();
@@ -245,17 +262,11 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="row">Row オブジェクト。</param>
         /// <returns>実際に有効となっているセルタイプ。</returns>
         /// <remarks>
-        /// Row.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプを返却します。<br/>
-        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// <see cref="SheetView.GetStyleInfo(int, -1)"/> から取得されます。
         /// </remarks>
         public static ICellType GetActualCellType(this Row row)
         {
-            if (row.CellType != null)
-            {
-                return row.CellType;
-            }
-
-            return row.GetSheet().DefaultStyle.CellType;
+            return row.GetSheet().GetStyleInfo(row.Index, -1).CellType;
         }
 
         /// <summary>
@@ -264,15 +275,14 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="row">Row オブジェクト。</param>
         /// <returns>コピーされたセルタイプ。</returns>
         /// <remarks>
-        /// Row.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプをコピーします。<br/>
-        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// <see cref="SheetView.GetStyleInfo(int, -1)"/> から取得されます。
         /// </remarks>
         public static ICellType CopyActualCellType(this Row row)
         {
             var cellType = GetActualCellType(row);
             if (cellType == null)
             {
-                return null;
+                throw new ArgumentException("CellType not found.");
             }
 
             return (ICellType)((BaseCellType)cellType).Clone();

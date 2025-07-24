@@ -1,5 +1,7 @@
 ﻿using FarPoint.Win.Spread;
 using FarPoint.Win.Spread.CellType;
+using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Metroit.Win.GcSpread.Extensions
@@ -16,7 +18,9 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <returns>列が所属している SheetView。</returns>
         public static SheetView GetSheet(this Column column)
         {
-            var pi = column.GetType().GetProperty("SheetView", BindingFlags.Instance | BindingFlags.NonPublic);
+            var pi = column.GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
+                .Where(x => typeof(SheetView).IsAssignableFrom(x.PropertyType))
+                .First();
             return (SheetView)pi.GetValue(column);
         }
 
@@ -26,17 +30,11 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="column">Column オブジェクト。</param>
         /// <returns>実際に有効となっているセルタイプ。</returns>
         /// <remarks>
-        /// Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプを返却します。<br/>
-        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// <see cref="SheetView.GetStyleInfo(-1, int)"/> から取得されます。
         /// </remarks>
         public static ICellType GetActualCellType(this Column column)
         {
-            if (column.CellType != null)
-            {
-                return column.CellType;
-            }
-
-            return column.GetSheet().DefaultStyle.CellType;
+            return column.GetSheet().GetStyleInfo(-1, column.Index).CellType;
         }
 
         /// <summary>
@@ -45,15 +43,14 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="column">Column オブジェクト。</param>
         /// <returns>コピーされたセルタイプ。</returns>
         /// <remarks>
-        /// Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプをコピーします。<br/>
-        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// <see cref="SheetView.GetStyleInfo(-1, int)"/> から取得されたセルタイプをコピーします。
         /// </remarks>
         public static ICellType CopyActualCellType(this Column column)
         {
             var cellType = GetActualCellType(column);
             if (cellType == null)
             {
-                return null;
+                throw new ArgumentException("CellType not found.");
             }
 
             return (ICellType)((BaseCellType)cellType).Clone();

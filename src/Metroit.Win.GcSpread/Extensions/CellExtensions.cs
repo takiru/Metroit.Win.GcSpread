@@ -1,7 +1,10 @@
 ﻿using FarPoint.Win.Spread;
 using FarPoint.Win.Spread.CellType;
+using GrapeCity.Spreadsheet.Win;
+using GrapeCity.Win.Spread.InputMan.CellType;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace Metroit.Win.GcSpread.Extensions
@@ -18,7 +21,9 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <returns>セルが所属している SheetView。</returns>
         public static SheetView GetSheet(this Cell cell)
         {
-            var pi = cell.GetType().GetProperty("SheetView", BindingFlags.Instance | BindingFlags.NonPublic);
+            var pi = cell.GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic)
+                .Where(x => typeof(SheetView).IsAssignableFrom(x.PropertyType))
+                .First();
             return (SheetView)pi.GetValue(cell);
         }
 
@@ -26,24 +31,51 @@ namespace Metroit.Win.GcSpread.Extensions
         /// セルが編集可能かどうか取得します。
         /// </summary>
         /// <param name="cell">Cell オブジェクト。</param>
-        /// <returns>true:編集可能, false:編集不可。</returns>
+        /// <returns>編集可能な場合は true, それ以外は false を返却します。</returns>
+        /// <remarks>
+        /// <see cref="EditBaseCellType.Static"/>、<see cref="RichTextCellType.Static"/>、<see cref="InputManCellTypeBase.Static"/> が true の場合は編集不可とみなします。<br/>
+        /// <see cref="SheetView.Protect"/> が true で、<paramref name="cell"/> の <see cref="BaseStyleInfo.Locked"/> が true の場合は編集不可とみなします。<br/>
+        /// いずれにも満たないとき、編集可能とみなします。
+        /// </remarks>
         public static bool CanEditable(this Cell cell)
         {
+            // セルタイプに Static プロパティを有しており、Static = True のものは編集不可
+            if (cell.CellType != null)
+            {
+                if (cell.CellType is EditBaseCellType editBaseCellType)
+                {
+                    if (editBaseCellType.Static)
+                    {
+                        return false;
+                    }
+                }
+
+                if (cell.CellType is RichTextCellType richTextCellType)
+                {
+                    if (richTextCellType.Static)
+                    {
+                        return false;
+                    }
+                }
+
+                if (cell.CellType is InputManCellTypeBase inputManCellTypeBase)
+                {
+                    if (inputManCellTypeBase.Static)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            // シートがプロテクトされていて、セルのロック状態がロックされている場合は編集不可
             var sheet = cell.GetSheet();
-
-            // シートがプロテクトされていない場合は編集可能
-            if (!sheet.Protect)
+            var cellLocked = sheet.GetStyleInfo(cell.Row.Index, cell.Column.Index).Locked;
+            if (sheet.Protect && cellLocked)
             {
-                return true;
+                return false;
             }
 
-            // シートがプロテクトされているが、セルのロック状態がロックされていない場合は編集可能
-            if (!sheet.GetStyleInfo(cell.Row.Index, cell.Column.Index).Locked)
-            {
-                return true;
-            }
-
-            return false;
+            return true;
         }
 
         /// <summary>
@@ -87,27 +119,11 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="cell">Cell オブジェクト。</param>
         /// <returns>実際に有効となっているセルタイプ。</returns>
         /// <remarks>
-        /// Cell.CellType, Row.CellType, Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプを返却します。<br/>
-        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// <see cref="SheetView.GetStyleInfo(int, int)"/> から取得されます。
         /// </remarks>
         public static ICellType GetActualCellType(this Cell cell)
         {
-            if (cell.CellType != null)
-            {
-                return cell.CellType;
-            }
-
-            if (cell.Row.CellType != null)
-            {
-                return cell.Row.CellType;
-            }
-
-            if (cell.Column.CellType != null)
-            {
-                return cell.Column.CellType;
-            }
-
-            return cell.GetSheet().DefaultStyle.CellType;
+            return cell.GetSheet().GetStyleInfo(cell.Row.Index, cell.Column.Index).CellType;
         }
 
         /// <summary>
@@ -116,15 +132,14 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="cell">Cell オブジェクト。</param>
         /// <returns>コピーされたセルタイプ。</returns>
         /// <remarks>
-        /// Cell.CellType, Row.CellType, Column.CellType, SheetView.DefaultStyle.CellType の順に割り当てられているセルタイプをコピーします。<br/>
-        /// すべてのセルタイプが null の場合、null が返却されます。
+        /// <see cref="SheetView.GetStyleInfo(int, int)"/> から取得されたセルタイプをコピーします。
         /// </remarks>
         public static ICellType CopyActualCellType(this Cell cell)
         {
             var cellType = GetActualCellType(cell);
             if (cellType == null)
             {
-                return null;
+                throw new ArgumentException("CellType not found.");
             }
 
             return (ICellType)((BaseCellType)cellType).Clone();

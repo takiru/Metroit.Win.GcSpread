@@ -61,7 +61,7 @@ namespace Metroit.Win.GcSpread
         /// <summary>
         /// 新しい MetFpSpread インスタンスを生成します。
         /// </summary>
-        public MetFpSpread() : base()
+        public MetFpSpread() : base(LegacyBehaviors.None)
         {
             AddEvents();
         }
@@ -69,8 +69,31 @@ namespace Metroit.Win.GcSpread
         /// <summary>
         /// 新しい MetFpSpread インスタンスを生成します。
         /// </summary>
-        /// <param name="legacyBehaviors">どの動作が下位互換であるかを値を示すLegacyBehaviors。</param>
+        /// <param name="legacyBehaviors">どの動作が下位互換であるかを値を示す <see cref="LegacyBehaviors"/>。</param>
         public MetFpSpread(LegacyBehaviors legacyBehaviors) : base(legacyBehaviors)
+        {
+            AddEvents();
+        }
+
+        /// <summary>
+        /// 新しい MetFpSpread インスタンスを生成します。
+        /// </summary>
+        /// <param name="legacyBehaviors">どの動作が下位互換であるかを値を示す <see cref="LegacyBehaviors"/>。</param>
+        /// <param name="resourceData">リソースデータ。</param>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public MetFpSpread(LegacyBehaviors legacyBehaviors, object resourceData) : base(legacyBehaviors, resourceData)
+        {
+            AddEvents();
+        }
+
+        /// <summary>
+        /// 新しい MetFpSpread インスタンスを生成します。
+        /// </summary>
+        /// <param name="legacyBehaviors">どの動作が下位互換であるかを値を示す <see cref="LegacyBehaviors"/>。</param>
+        /// <param name="resourceData">リソースデータ。</param>
+        /// <param name="enhancedShapeEngine">新しい拡張シェイプエンジンを使用するかどうか。</param>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public MetFpSpread(LegacyBehaviors legacyBehaviors, object resourceData, bool enhancedShapeEngine) : base(legacyBehaviors, resourceData, enhancedShapeEngine)
         {
             AddEvents();
         }
@@ -203,7 +226,7 @@ namespace Metroit.Win.GcSpread
         }
 
         /// <summary>
-        /// シートのドラッグコピーを許可しな場合、ドラッグ中にCtrlが押されてたら拒否する。
+        /// シートのドラッグコピーを許可しない場合、ドラッグ中にCtrlが押されてたら拒否する。
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -310,7 +333,7 @@ namespace Metroit.Win.GcSpread
 
             var textPastingEventArgs = new ClipboardTextPastingEventArgs(e.Behavior, e.Handled,
                 ActiveSheet.ActiveCell, textList, clipboardText);
-
+            
             OnClipboardTextPasting(textPastingEventArgs);
 
             e.Handled = textPastingEventArgs.Handled;
