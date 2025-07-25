@@ -61,7 +61,7 @@ namespace Metroit.Win.GcSpread
         /// <summary>
         /// 新しい MetFpSpread インスタンスを生成します。
         /// </summary>
-        public MetFpSpread() : base(LegacyBehaviors.None)
+        public MetFpSpread() : base()
         {
             AddEvents();
         }

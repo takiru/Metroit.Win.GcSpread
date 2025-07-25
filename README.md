@@ -36,9 +36,6 @@ public class FpSpreadEx : MetFpSpread
 
 コントロールを配置したときに、FpSpread は LegacyBehaviors.None として配置されます。  
 しかし、コード上で引数を指定せずインスタンス化したとき、FpSpread は LegacyBehaviors.All として生成されます。  
-コントロール配置で同様の動作を既定とさせるため、MetFpSpread の引数がないコンストラクタは LegacyBehaviors.None として動作します。  
-そのため、コード上でインスタンス化し、LegacyBehaviors.All などとしたいときは下記のようにコードする必要があります。
-
-```cs
-var fpSpread = new MetFpSpread(LegacyBehaviors.All);
-```
+残念ながら、MetFpSpread では FpSpread の動作を忠実に実現できません。  
+MetFpSpread コントロールを配置したときと、引数がないコンストラクタはどちらも LegacyBehaviors.All として動作します。
+そのため、LegacyBehaviors.None のコントロールを配置したいとき、コントロールを配置したあとに LegacyBehaviors プロパティを変更してください。
