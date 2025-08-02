@@ -1,5 +1,6 @@
 ﻿using FarPoint.Win.Spread;
 using FarPoint.Win.Spread.CellType;
+using GrapeCity.Spreadsheet.Win;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -196,7 +197,7 @@ namespace Metroit.Win.GcSpread.Extensions
         /// </remarks>
         public static bool CanEditable(this Row row)
         {
-             // シートがプロテクトされていて、行のロック状態がロックされている場合は編集不可
+            // シートがプロテクトされていて、行のロック状態がロックされている場合は編集不可
             var sheet = row.GetSheet();
             var rowLocked = sheet.GetStyleInfo(row.Index, -1).Locked;
             if (sheet.Protect && rowLocked)
@@ -262,7 +263,7 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="row">Row オブジェクト。</param>
         /// <returns>実際に有効となっているセルタイプ。</returns>
         /// <remarks>
-        /// <see cref="SheetView.GetStyleInfo(int, -1)"/> から取得されます。
+        /// <see cref="SheetView.GetStyleInfo(int, int)"/> から取得されます。
         /// </remarks>
         public static ICellType GetActualCellType(this Row row)
         {
@@ -275,7 +276,7 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="row">Row オブジェクト。</param>
         /// <returns>コピーされたセルタイプ。</returns>
         /// <remarks>
-        /// <see cref="SheetView.GetStyleInfo(int, -1)"/> から取得されます。
+        /// <see cref="SheetView.GetStyleInfo(int, int)"/> から取得されます。
         /// </remarks>
         public static ICellType CopyActualCellType(this Row row)
         {

@@ -17,7 +17,6 @@ namespace Metroit.Win.GcSpread
         /// <summary>
         /// 新しいインスタンスを生成します。
         /// </summary>
-        /// <param name="fpSpread">MetFpSpread オブジェクト。</param>
         public CustomSearchDialog()
         {
             InitializeComponent();

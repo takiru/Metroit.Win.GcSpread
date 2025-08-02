@@ -1,44 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
-    <Nullable>disable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <Authors>Takeru Yamaguchi</Authors>
-    <Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
-    <Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-    <VersionPrefix>17.2.0.1</VersionPrefix>
-    <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
-    <FileVersion>$(VersionPrefix)</FileVersion>
-    <PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/takiru/Metroit.Win.GcSpread</RepositoryUrl>
-    <PackageTags>Metroit;winforms;GrapeCity;GcSpread;spreadsheet;</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>$(AssemblyName).ja</PackageId>
-    <PackageReleaseNotes>
-      CellExtensions
-      - GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
-      - CanEditable() で Static プロパティを有しているセルタイプも検証に含めるよう修正。
-      - GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
-      - CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
+		<Nullable>disable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Authors>Takeru Yamaguchi</Authors>
+		<Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
+		<Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
+		<VersionPrefix>17.2.0.1</VersionPrefix>
+		<AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
+		<FileVersion>$(VersionPrefix)</FileVersion>
+		<PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/takiru/Metroit.Win.GcSpread</RepositoryUrl>
+		<PackageTags>Metroit;winforms;GrapeCity;GcSpread;spreadsheet;</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>$(AssemblyName).ja</PackageId>
+		<PackageReleaseNotes>
+			CellExtensions
+			- GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
+			- CanEditable() で Static プロパティを有しているセルタイプも検証に含めるよう修正。
+			- GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
+			- CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
 
-      ColumnExtensions
-      - GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
-      - GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
-      - CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
+			ColumnExtensions
+			- GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
+			- GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
+			- CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
 
-      RowExtensions
-      - GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
-      - CanEditable() で GetStyleInfo() から得られた Locked で検証するよう修正。
-      - GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
-      - CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
-    </PackageReleaseNotes>
-  </PropertyGroup>
+			RowExtensions
+			- GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
+			- CanEditable() で GetStyleInfo() から得られた Locked で検証するよう修正。
+			- GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
+			- CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
+		</PackageReleaseNotes>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.2.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.2.0" />
+	</ItemGroup>
 </Project>

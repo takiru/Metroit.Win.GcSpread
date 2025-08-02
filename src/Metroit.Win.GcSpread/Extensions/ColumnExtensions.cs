@@ -30,7 +30,7 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="column">Column オブジェクト。</param>
         /// <returns>実際に有効となっているセルタイプ。</returns>
         /// <remarks>
-        /// <see cref="SheetView.GetStyleInfo(-1, int)"/> から取得されます。
+        /// <see cref="SheetView.GetStyleInfo(int, int)"/> から取得されます。
         /// </remarks>
         public static ICellType GetActualCellType(this Column column)
         {
@@ -43,7 +43,7 @@ namespace Metroit.Win.GcSpread.Extensions
         /// <param name="column">Column オブジェクト。</param>
         /// <returns>コピーされたセルタイプ。</returns>
         /// <remarks>
-        /// <see cref="SheetView.GetStyleInfo(-1, int)"/> から取得されたセルタイプをコピーします。
+        /// <see cref="SheetView.GetStyleInfo(int, int)"/> から取得されたセルタイプをコピーします。
         /// </remarks>
         public static ICellType CopyActualCellType(this Column column)
         {
