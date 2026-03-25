@@ -8,7 +8,7 @@
 		<Authors>Takeru Yamaguchi</Authors>
 		<Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
 		<Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-		<VersionPrefix>17.2.0.1</VersionPrefix>
+		<VersionPrefix>17.3.0.0</VersionPrefix>
 		<AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
 		<FileVersion>$(VersionPrefix)</FileVersion>
 		<PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
@@ -19,27 +19,12 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>$(AssemblyName).ja</PackageId>
 		<PackageReleaseNotes>
-			CellExtensions
-			- GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
-			- CanEditable() で Static プロパティを有しているセルタイプも検証に含めるよう修正。
-			- GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
-			- CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
-
-			ColumnExtensions
-			- GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
-			- GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
-			- CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
-
-			RowExtensions
-			- GetSheet() でプロパティ名ではなく、SheetView クラスで探すよう修正。
-			- CanEditable() で GetStyleInfo() から得られた Locked で検証するよう修正。
-			- GetActualCellType() は GetStyleInfo() を利用して求めるよう修正。
-			- CopyActualCellType() は セルタイプが得られなかった場合は例外とするよう修正。
-		</PackageReleaseNotes>
+      GrapeCity.Spread.WinForms.ja 17.3.0 に対応。
+    </PackageReleaseNotes>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.2.0" />
+		<PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.3.0" />
 	</ItemGroup>
 </Project>
