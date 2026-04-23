@@ -33,6 +33,7 @@
             metFpSpread1_Sheet1 = metFpSpread1.GetSheet(0);
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)metFpSpread1).BeginInit();
             SuspendLayout();
             // 
@@ -68,11 +69,22 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(514, 80);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 3;
+            button3.Text = "Validate";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 562);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(metFpSpread1);
@@ -90,5 +102,6 @@
         private FarPoint.Win.Spread.SheetView metFpSpread1_Sheet1;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }

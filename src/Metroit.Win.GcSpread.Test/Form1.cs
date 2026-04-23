@@ -57,5 +57,17 @@ namespace Metroit.Win.GcSpread.Test
             MessageBox.Show($"Cells[5, 7] = {metFpSpread1.ActiveSheet.Cells[5, 7].GetActualCellType()?.ToString() ?? "null"}");
             MessageBox.Show($"Cells[6, 7] = {metFpSpread1.ActiveSheet.Cells[6, 7].GetActualCellType()?.ToString() ?? "null"}");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var validator = new SampleValidator("ƒ^ƒCƒgƒ‹", MessageBoxIcon.Error);
+            foreach (var row in metFpSpread1.ActiveSheet.Rows.Cast<Row>())
+            {
+                if (!validator.Validate(row))
+                {
+                    return;
+                }
+            }
+        }
     }
 }

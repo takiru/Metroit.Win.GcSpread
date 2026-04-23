@@ -75,9 +75,16 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullBehavior(string name, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateNotNullBehavior(string name, Func<Cell, bool> ignore = null, string errorMessage = null)
         {
+            var message = $"{name}を入力してください。";
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                message = string.Format(errorMessage, name);
+            }
+
             return new ValidationBehavior(
                 (sheet, cell) =>
                 {
@@ -89,7 +96,7 @@ namespace Metroit.Win.GcSpread.Validation
 
                     return !IsNull(cell.Value);
                 },
-                $"{name}を入力してください。");
+                message);
         }
 
         /// <summary>
@@ -98,10 +105,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateNotNullBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotNullBehavior(name, ignore);
+            var result = CreateNotNullBehavior(name, ignore, errorMessage);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -112,10 +120,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateNotNullBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotNullBehavior(name, ignore);
+            var result = CreateNotNullBehavior(name, ignore, errorMessage);
             result.SetErrorColumn(errorColumn);
             return result;
         }
@@ -125,9 +134,16 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, Func<Cell, bool> ignore = null, string errorMessage = null)
         {
+            var message = $"{name}を入力してください。";
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                message = string.Format(errorMessage, name);
+            }
+
             return new ValidationBehavior(
                 (sheet, cell) =>
                 {
@@ -139,7 +155,7 @@ namespace Metroit.Win.GcSpread.Validation
 
                     return !IsNullOrEmpty(cell.Value);
                 },
-                $"{name}を入力してください。");
+                message);
         }
 
         /// <summary>
@@ -148,10 +164,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotNullOrEmptyBehavior(name, ignore);
+            var result = CreateNotNullOrEmptyBehavior(name, ignore, errorMessage);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -162,10 +179,11 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotNullOrEmptyBehavior(name, ignore);
+            var result = CreateNotNullOrEmptyBehavior(name, ignore, errorMessage);
             result.SetErrorColumn(errorColumn);
             return result;
         }
@@ -175,9 +193,16 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, Func<Cell, bool> ignore = null, string errorMessage = null)
         {
+            var message = $"{name}に半角以外の文字が入力されています。";
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                message = string.Format(errorMessage, name);
+            }
+
             return new ValidationBehavior(
                 (sheet, cell) =>
                 {
@@ -189,7 +214,7 @@ namespace Metroit.Win.GcSpread.Validation
 
                     return IsOnlyHalfWidthChars(cell.Value?.ToString());
                 },
-                $"{name}に半角以外の文字が入力されています。");
+                message);
         }
 
         /// <summary>
@@ -198,10 +223,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, string errorDataField,
+            Func<Cell, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateHalfWidthCharsBehavior(name, ignore);
+            var result = CreateHalfWidthCharsBehavior(name, ignore, errorMessage);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -212,10 +239,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
-        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null)
+        public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, int errorColumn,
+            Func<Cell, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateHalfWidthCharsBehavior(name, ignore);
+            var result = CreateHalfWidthCharsBehavior(name, ignore, errorMessage);
             result.SetErrorColumn(errorColumn);
             return result;
         }
@@ -226,10 +255,17 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="dataFields">重複検証を行う DataField 値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string[] dataFields, string name,
-            Func<Row, bool> ignore = null)
+            Func<Row, bool> ignore = null, string errorMessage = null)
         {
+            var message = $"{name}が重複しています。";
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                message = string.Format(errorMessage, name);
+            }
+
             return new ValidationBehavior(
                 (sheet, cell) =>
                 {
@@ -266,7 +302,7 @@ namespace Metroit.Win.GcSpread.Validation
 
                     return true;
                 },
-                $"{name}が重複しています。");
+                message);
         }
 
         /// <summary>
@@ -275,10 +311,17 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="columns">重複検証を行う列インデックス値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int[] columns, string name,
-            Func<Row, bool> ignore = null)
+            Func<Row, bool> ignore = null, string errorMessage = null)
         {
+            var message = $"{name}が重複しています。";
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                message = string.Format(errorMessage, name);
+            }
+
             return new ValidationBehavior(
                 (sheet, cell) =>
                 {
@@ -315,7 +358,7 @@ namespace Metroit.Win.GcSpread.Validation
 
                     return true;
                 },
-                $"{name}が重複しています。");
+                message);
         }
 
         /// <summary>
@@ -324,11 +367,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="dataField">重複検証を行う DataField 値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string dataField, string name,
-            Func<Row, bool> ignore = null)
+            Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(new string[] { dataField }, name, ignore);
+            var result = CreateNotDuplicateBehavior(new string[] { dataField }, name, ignore, errorMessage);
             return result;
         }
 
@@ -338,11 +382,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="column">重複検証を行う列インデックス値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int column, string name,
-            Func<Row, bool> ignore = null)
+            Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(new int[] { column }, name, ignore);
+            var result = CreateNotDuplicateBehavior(new int[] { column }, name, ignore, errorMessage);
             return result;
         }
 
@@ -353,11 +398,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string[] dataFields, string name,
-            string errorDataField, Func<Row, bool> ignore = null)
+            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(dataFields, name, ignore);
+            var result = CreateNotDuplicateBehavior(dataFields, name, ignore, errorMessage);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -369,11 +415,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string[] dataFields, string name,
-            int errorColumn, Func<Row, bool> ignore = null)
+            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(dataFields, name, ignore);
+            var result = CreateNotDuplicateBehavior(dataFields, name, ignore, errorMessage);
             result.SetErrorColumn(errorColumn);
             return result;
         }
@@ -385,11 +432,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int[] columns, string name,
-            string errorDataField, Func<Row, bool> ignore = null)
+            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(columns, name, ignore);
+            var result = CreateNotDuplicateBehavior(columns, name, ignore, errorMessage);
             result.SetErrorDataField(errorDataField);
             return result;
         }
@@ -401,11 +449,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int[] columns, string name,
-            int errorColumn, Func<Row, bool> ignore = null)
+            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(columns, name, ignore);
+            var result = CreateNotDuplicateBehavior(columns, name, ignore, errorMessage);
             result.SetErrorColumn(errorColumn);
             return result;
         }
@@ -417,11 +466,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string dataField, string name,
-            string errorDataField, Func<Row, bool> ignore = null)
+            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorDataField, ignore);
+            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorDataField, ignore, errorMessage);
         }
 
         /// <summary>
@@ -431,11 +481,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string dataField, string name,
-            int errorColumn, Func<Row, bool> ignore = null)
+            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorColumn, ignore);
+            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorColumn, ignore, errorMessage);
         }
 
         /// <summary>
@@ -445,11 +496,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int column, string name,
-            string errorDataField, Func<Row, bool> ignore = null)
+            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new int[] { column }, name, errorDataField, ignore);
+            return CreateNotDuplicateBehavior(new int[] { column }, name, errorDataField, ignore, errorMessage);
         }
 
         /// <summary>
@@ -459,11 +511,12 @@ namespace Metroit.Win.GcSpread.Validation
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
         /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int column, string name,
-            int errorColumn, Func<Row, bool> ignore = null)
+            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new int[] { column }, name, errorColumn, ignore);
+            return CreateNotDuplicateBehavior(new int[] { column }, name, errorColumn, ignore, errorMessage);
         }
 
         /// <summary>
