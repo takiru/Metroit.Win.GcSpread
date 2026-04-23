@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Metroit.Win.GcSpread.Validation
+namespace Metroit.Win.GcSpread.Validation.Generic
 {
     /// <summary>
     /// 行の検証情報の既定動作を提供します。

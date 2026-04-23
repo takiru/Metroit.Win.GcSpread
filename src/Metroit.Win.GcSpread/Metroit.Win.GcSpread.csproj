@@ -1,30 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
-		<Nullable>disable</Nullable>
-		<UseWindowsForms>true</UseWindowsForms>
-		<ImplicitUsings>disable</ImplicitUsings>
-		<Authors>Takeru Yamaguchi</Authors>
-		<Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
-		<Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-		<VersionPrefix>17.3.1.0</VersionPrefix>
-		<AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
-		<FileVersion>$(VersionPrefix)</FileVersion>
-		<PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/takiru/Metroit.Win.GcSpread</RepositoryUrl>
-		<PackageTags>Metroit;winforms;GrapeCity;GcSpread;spreadsheet;</PackageTags>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageId>$(AssemblyName).ja</PackageId>
-		<PackageReleaseNotes>
-      CreateNotNullBehavior(), CreateNotNullOrEmptyBehavior(), CreateHalfWidthCharsBehavior(), CreateNotDuplicateBehavior() で任意のエラーメッセージを指定できるようにしました。
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Authors>Takeru Yamaguchi</Authors>
+    <Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
+    <Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
+    <VersionPrefix>17.3.1.0</VersionPrefix>
+    <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
+    <FileVersion>$(VersionPrefix)</FileVersion>
+    <PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/takiru/Metroit.Win.GcSpread</RepositoryUrl>
+    <PackageTags>Metroit;winforms;GrapeCity;GcSpread;spreadsheet;</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyName).ja</PackageId>
+    <PackageReleaseNotes>
+      Generic.RowValidatorBase
+      - 名前空間を整備しました。
+      ValidationBehavior
+      - CreateNotNullBehavior(), CreateNotNullOrEmptyBehavior(), CreateHalfWidthCharsBehavior(), CreateNotDuplicateBehavior() で任意のエラーメッセージを指定できるようにしました。
     </PackageReleaseNotes>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-	</PropertyGroup>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.3.0" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GrapeCity.Spread.WinForms.ja" Version="17.3.0" />
+  </ItemGroup>
 </Project>
