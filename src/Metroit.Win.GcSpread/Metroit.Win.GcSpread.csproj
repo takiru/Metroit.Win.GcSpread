@@ -23,6 +23,7 @@
       - 名前空間を整備しました。
       ValidationBehavior
       - CreateNotNullBehavior(), CreateNotNullOrEmptyBehavior(), CreateHalfWidthCharsBehavior(), CreateNotDuplicateBehavior() で任意のエラーメッセージを指定できるようにしました。
+      - CustomErrorMessage プロパティによって、SheetView または Cell を利用したエラーメッセージを扱えるようにしました。
     </PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>

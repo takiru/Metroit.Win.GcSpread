@@ -135,16 +135,22 @@ namespace Metroit.Win.GcSpread.Validation
                         continue;
                     }
 
-                    if (!string.IsNullOrEmpty(validationBehavior.ErrorMessage))
+                    var errorMessage = validationBehavior.ErrorMessage;
+                    if (validationBehavior.CustomErrorMessage != null)
+                    {
+                        errorMessage = validationBehavior.CustomErrorMessage.Invoke(sheet, cell);
+                    }
+
+                    if (!string.IsNullOrEmpty(errorMessage))
                     {
                         // オーナーが設定されている場合はオーナーのタイトルを優先する
                         if (Owner == null)
                         {
-                            MessageBox.Show(validationBehavior.ErrorMessage, MessageTitle, MessageBoxButtons.OK, MessageBoxIcon);
+                            MessageBox.Show(errorMessage, MessageTitle, MessageBoxButtons.OK, MessageBoxIcon);
                         }
                         else
                         {
-                            MessageBox.Show(validationBehavior.ErrorMessage, Owner.Text, MessageBoxButtons.OK, MessageBoxIcon);
+                            MessageBox.Show(errorMessage, Owner.Text, MessageBoxButtons.OK, MessageBoxIcon);
                         }
                     }
 

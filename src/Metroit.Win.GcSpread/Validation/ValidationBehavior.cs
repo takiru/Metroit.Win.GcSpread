@@ -24,6 +24,12 @@ namespace Metroit.Win.GcSpread.Validation
         public string ErrorMessage { get; } = null;
 
         /// <summary>
+        /// エラーメッセージの取得をオーナーに委譲する場合の振る舞いを取得します。<br/>
+        /// <see langword="null"/>ではないときには<see cref="ErrorMessage"/>より優先されます。
+        /// </summary>
+        public Func<SheetView, Cell, string> CustomErrorMessage { get; set; } = null;
+
+        /// <summary>
         /// エラー時にフォーカスする DataField 値を取得します。
         /// </summary>
         /// <returns></returns>
