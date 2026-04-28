@@ -24,6 +24,7 @@
       ValidationBehavior
       - CreateNotNullBehavior(), CreateNotNullOrEmptyBehavior(), CreateHalfWidthCharsBehavior(), CreateNotDuplicateBehavior() で任意のエラーメッセージを指定できるようにしました。
       - CustomErrorMessage プロパティによって、SheetView または Cell を利用したエラーメッセージを扱えるようにしました。
+      - CreateNotDuplicateBehavior() で、検証を無視するセルの制御および、検証時に重複判定から無視する行の制御を行えるようにしました。
     </PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>

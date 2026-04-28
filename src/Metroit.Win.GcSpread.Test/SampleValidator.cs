@@ -26,7 +26,7 @@ namespace Metroit.Win.GcSpread.Test
 
             // A列の重複チェック
             var column1Validation2 = new ValidationItem(0);
-            column1Validation2.ValidationBehaviors.Add(ValidationBehavior.CreateNotDuplicateBehavior(0, "列A", null, "重複している{0}"));
+            column1Validation2.ValidationBehaviors.Add(ValidationBehavior.CreateNotDuplicateBehavior(0, "列A", null, null, "重複している{0}"));
             ValidationItems.Add(column1Validation2);
         }
     }

@@ -1,5 +1,5 @@
-﻿using Metroit.Win.GcSpread.Extensions;
-using FarPoint.Win.Spread;
+﻿using FarPoint.Win.Spread;
+using Metroit.Win.GcSpread.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,7 +80,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// null を許可しない値検証の振る舞いを生成します。
         /// </summary>
         /// <param name="name">項目名。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotNullBehavior(string name, Func<Cell, bool> ignore = null, string errorMessage = null)
@@ -110,7 +110,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotNullBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null, string errorMessage = null)
@@ -125,7 +125,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotNullBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null, string errorMessage = null)
@@ -139,7 +139,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// null または 空 を許可しない値検証の振る舞いを生成します。
         /// </summary>
         /// <param name="name">項目名。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, Func<Cell, bool> ignore = null, string errorMessage = null)
@@ -169,7 +169,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, string errorDataField, Func<Cell, bool> ignore = null, string errorMessage = null)
@@ -184,7 +184,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotNullOrEmptyBehavior(string name, int errorColumn, Func<Cell, bool> ignore = null, string errorMessage = null)
@@ -198,7 +198,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// 半角英数記号以外を許可しない値検証の振る舞いを生成します。
         /// </summary>
         /// <param name="name">項目名。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, Func<Cell, bool> ignore = null, string errorMessage = null)
@@ -228,7 +228,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, string errorDataField,
@@ -244,7 +244,7 @@ namespace Metroit.Win.GcSpread.Validation
         /// </summary>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
-        /// <param name="ignore">無視するセルの判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateHalfWidthCharsBehavior(string name, int errorColumn,
@@ -256,15 +256,17 @@ namespace Metroit.Win.GcSpread.Validation
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="dataFields"/> すべての組み合わせが重複しているときに不正とみなします。
         /// </summary>
-        /// <param name="dataFields">重複検証を行う DataField 値。</param>
+        /// <param name="dataFields">重複検証を行う DataField 値の配列。</param>
         /// <param name="name">項目名。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string[] dataFields, string name,
-            Func<Row, bool> ignore = null, string errorMessage = null)
+            Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
             var message = $"{name}が重複しています。";
             if (!string.IsNullOrEmpty(errorMessage))
@@ -275,10 +277,16 @@ namespace Metroit.Win.GcSpread.Validation
             return new ValidationBehavior(
                 (sheet, cell) =>
                 {
+                    // 検証として無視する行は対象外
+                    if (ignore != null && ignore(cell))
+                    {
+                        return true;
+                    }
+
                     var count = sheet.Rows.Cast<Row>().Where((row) =>
                     {
-                        // 無視する行は対象外
-                        if (ignore != null && ignore(row))
+                        // 検証候補として無視する行は対象外
+                        if (ignoreTestCandidates != null && ignoreTestCandidates(row))
                         {
                             return false;
                         }
@@ -312,15 +320,17 @@ namespace Metroit.Win.GcSpread.Validation
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="columns"/> すべての組み合わせが重複しているときに不正とみなします。
         /// </summary>
-        /// <param name="columns">重複検証を行う列インデックス値。</param>
+        /// <param name="columns">重複検証を行う列インデックス値の配列。</param>
         /// <param name="name">項目名。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int[] columns, string name,
-            Func<Row, bool> ignore = null, string errorMessage = null)
+            Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
             var message = $"{name}が重複しています。";
             if (!string.IsNullOrEmpty(errorMessage))
@@ -331,10 +341,16 @@ namespace Metroit.Win.GcSpread.Validation
             return new ValidationBehavior(
                 (sheet, cell) =>
                 {
+                    // 検証として無視する行は対象外
+                    if (ignore != null && ignore(cell))
+                    {
+                        return true;
+                    }
+
                     var count = sheet.Rows.Cast<Row>().Where((row) =>
                     {
-                        // 無視する行は対象外
-                        if (ignore != null && ignore(row))
+                        // 検証候補として無視する行は対象外
+                        if (ignoreTestCandidates != null && ignoreTestCandidates(row))
                         {
                             return false;
                         }
@@ -368,161 +384,181 @@ namespace Metroit.Win.GcSpread.Validation
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="dataField"/> が重複しているときに不正とみなします。
         /// </summary>
         /// <param name="dataField">重複検証を行う DataField 値。</param>
         /// <param name="name">項目名。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string dataField, string name,
-            Func<Row, bool> ignore = null, string errorMessage = null)
+            Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(new string[] { dataField }, name, ignore, errorMessage);
+            var result = CreateNotDuplicateBehavior(new string[] { dataField }, name, ignore, ignoreTestCandidates, errorMessage);
             return result;
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="column"/> が重複しているときに不正とみなします。
         /// </summary>
         /// <param name="column">重複検証を行う列インデックス値。</param>
         /// <param name="name">項目名。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int column, string name,
-            Func<Row, bool> ignore = null, string errorMessage = null)
+            Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(new int[] { column }, name, ignore, errorMessage);
+            var result = CreateNotDuplicateBehavior(new int[] { column }, name, ignore, ignoreTestCandidates, errorMessage);
             return result;
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="dataFields"/> すべての組み合わせが重複しているときに不正とみなします。
         /// </summary>
         /// <param name="dataFields">重複検証を行う DataField 値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string[] dataFields, string name,
-            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
+            string errorDataField, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(dataFields, name, ignore, errorMessage);
+            var result = CreateNotDuplicateBehavior(dataFields, name, ignore, ignoreTestCandidates, errorMessage);
             result.SetErrorDataField(errorDataField);
             return result;
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="dataFields"/> すべての組み合わせが重複しているときに不正とみなします。
         /// </summary>
         /// <param name="dataFields">重複検証を行う DataField 値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string[] dataFields, string name,
-            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
+            int errorColumn, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(dataFields, name, ignore, errorMessage);
+            var result = CreateNotDuplicateBehavior(dataFields, name, ignore, ignoreTestCandidates, errorMessage);
             result.SetErrorColumn(errorColumn);
             return result;
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="columns"/> すべての組み合わせが重複しているときに不正とみなします。
         /// </summary>
         /// <param name="columns">重複検証を行う列インデックス値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int[] columns, string name,
-            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
+            string errorDataField, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(columns, name, ignore, errorMessage);
+            var result = CreateNotDuplicateBehavior(columns, name, ignore, ignoreTestCandidates, errorMessage);
             result.SetErrorDataField(errorDataField);
             return result;
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="columns"/> すべての組み合わせが重複しているときに不正とみなします。
         /// </summary>
         /// <param name="columns">重複検証を行う列インデックス値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int[] columns, string name,
-            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
+            int errorColumn, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            var result = CreateNotDuplicateBehavior(columns, name, ignore, errorMessage);
+            var result = CreateNotDuplicateBehavior(columns, name, ignore, ignoreTestCandidates, errorMessage);
             result.SetErrorColumn(errorColumn);
             return result;
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="dataField"/> が重複しているときに不正とみなします。
         /// </summary>
         /// <param name="dataField">重複検証を行う DataField 値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string dataField, string name,
-            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
+            string errorDataField, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorDataField, ignore, errorMessage);
+            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorDataField, ignore, ignoreTestCandidates, errorMessage);
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="dataField"/> が重複しているときに不正とみなします。
         /// </summary>
         /// <param name="dataField">重複検証を行う DataField 値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(string dataField, string name,
-            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
+            int errorColumn, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorColumn, ignore, errorMessage);
+            return CreateNotDuplicateBehavior(new string[] { dataField }, name, errorColumn, ignore, ignoreTestCandidates, errorMessage);
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="column"/> が重複しているときに不正とみなします。
         /// </summary>
         /// <param name="column">重複検証を行う列インデックス値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorDataField">エラー時にフォーカスする DataField 値。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int column, string name,
-            string errorDataField, Func<Row, bool> ignore = null, string errorMessage = null)
+            string errorDataField, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new int[] { column }, name, errorDataField, ignore, errorMessage);
+            return CreateNotDuplicateBehavior(new int[] { column }, name, errorDataField, ignore, ignoreTestCandidates, errorMessage);
         }
 
         /// <summary>
-        /// 重複行を許可しない値検証の振る舞いを生成します。
+        /// 重複行を許可しない値検証の振る舞いを生成します。<br/>
+        /// 指定した <paramref name="column"/> が重複しているときに不正とみなします。
         /// </summary>
         /// <param name="column">重複検証を行う列インデックス値。</param>
         /// <param name="name">項目名。</param>
         /// <param name="errorColumn">エラー時にフォーカスする列インデックス。</param>
-        /// <param name="ignore">無視する行の判定処理。</param>
+        /// <param name="ignore">対象セルの検証を無視するかどうかを制御します。<see langword="true"/>のときはセルの検証を無視します。</param>
+        /// <param name="ignoreTestCandidates">対象行を重複行の検証候補として無視するかどうかを制御します。<see langword="true"/>のときは対象行を重複行の検証候補として無視します。</param>
         /// <param name="errorMessage">エラーメッセージ。</param>
         /// <returns>値検証の振る舞い。</returns>
         public static ValidationBehavior CreateNotDuplicateBehavior(int column, string name,
-            int errorColumn, Func<Row, bool> ignore = null, string errorMessage = null)
+            int errorColumn, Func<Cell, bool> ignore = null, Func<Row, bool> ignoreTestCandidates = null, string errorMessage = null)
         {
-            return CreateNotDuplicateBehavior(new int[] { column }, name, errorColumn, ignore, errorMessage);
+            return CreateNotDuplicateBehavior(new int[] { column }, name, errorColumn, ignore, ignoreTestCandidates, errorMessage);
         }
 
         /// <summary>
