@@ -8,7 +8,7 @@
     <Authors>Takeru Yamaguchi</Authors>
     <Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
     <Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-    <VersionPrefix>17.3.1.0</VersionPrefix>
+    <VersionPrefix>17.3.2.0</VersionPrefix>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
@@ -19,12 +19,8 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName).ja</PackageId>
     <PackageReleaseNotes>
-      Generic.RowValidatorBase
-      - 名前空間を整備しました。
-      ValidationBehavior
-      - CreateNotNullBehavior(), CreateNotNullOrEmptyBehavior(), CreateHalfWidthCharsBehavior(), CreateNotDuplicateBehavior() で任意のエラーメッセージを指定できるようにしました。
-      - CustomErrorMessage プロパティによって、SheetView または Cell を利用したエラーメッセージを扱えるようにしました。
-      - CreateNotDuplicateBehavior() で、検証を無視するセルの制御および、検証時に重複判定から無視する行の制御を行えるようにしました。
+      Add
+      - SheetView.ChangeResizable() を追加しました。
     </PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>

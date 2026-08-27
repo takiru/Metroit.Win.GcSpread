@@ -315,5 +315,50 @@ namespace Metroit.Win.GcSpread.Extensions
 
             return result;
         }
+
+        /// <summary>
+        /// 列のサイズを変更できるかどうかを変更します。
+        /// </summary>
+        /// <param name="sheetView">SheetView オブジェクト。</param>
+        /// <param name="resizable">列のサイズを変更できるかどうか。</param>
+        /// <param name="fromIndex">列のサイズを変更できるかどうかの列インデックス。</param>
+        /// <param name="columnCount">列のサイズを変更できるかどうかの列数。</param>
+        public static void ChangeResizable(this SheetView sheetView, bool resizable, int fromIndex, int columnCount)
+        {
+            var toIndex = fromIndex + columnCount - 1;
+
+            foreach (var column in sheetView.Columns.OfType<Column>())
+            {
+                if (column.Index < fromIndex)
+                {
+                    continue;
+                }
+                if (column.Index > toIndex)
+                {
+                    continue;
+                }
+
+                column.Resizable = resizable;
+            }
+        }
+
+        /// <summary>
+        /// 列のサイズを変更できるかどうかを変更します。
+        /// </summary>
+        /// <param name="sheetView">SheetView オブジェクト。</param>
+        /// <param name="resizable">列のサイズを変更できるかどうか。</param>
+        /// <param name="predicate">列のサイズを変更できるかどうかを決定する方法。</param>
+        public static void ChangeResizable(this SheetView sheetView, bool resizable, Func<Column, bool> predicate = null)
+        {
+            foreach (var column in sheetView.Columns.OfType<Column>())
+            {
+                if (predicate?.Invoke(column) == false)
+                {
+                    continue;
+                }
+
+                column.Resizable = resizable;
+            }
+        }
     }
 }
