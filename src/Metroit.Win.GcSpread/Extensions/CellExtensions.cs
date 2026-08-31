@@ -39,10 +39,12 @@ namespace Metroit.Win.GcSpread.Extensions
         /// </remarks>
         public static bool CanEditable(this Cell cell)
         {
+            var cellType = GetActualCellType(cell);
+
             // セルタイプに Static プロパティを有しており、Static = True のものは編集不可
-            if (cell.CellType != null)
+            if (cellType != null)
             {
-                if (cell.CellType is EditBaseCellType editBaseCellType)
+                if (cellType is EditBaseCellType editBaseCellType)
                 {
                     if (editBaseCellType.Static)
                     {
@@ -50,7 +52,7 @@ namespace Metroit.Win.GcSpread.Extensions
                     }
                 }
 
-                if (cell.CellType is RichTextCellType richTextCellType)
+                if (cellType is RichTextCellType richTextCellType)
                 {
                     if (richTextCellType.Static)
                     {
@@ -58,7 +60,7 @@ namespace Metroit.Win.GcSpread.Extensions
                     }
                 }
 
-                if (cell.CellType is InputManCellTypeBase inputManCellTypeBase)
+                if (cellType is InputManCellTypeBase inputManCellTypeBase)
                 {
                     if (inputManCellTypeBase.Static)
                     {
