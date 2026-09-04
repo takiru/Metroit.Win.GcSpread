@@ -52,5 +52,30 @@ namespace Metroit.Win.GcSpread
 
             return -1;
         }
+
+        /// <summary>
+        /// 指定された定義名に対応する列のインデックスを取得します。
+        /// </summary>
+        /// <param name="name">インデックスを取得したい定義名。</param>
+        /// <returns>
+        /// 対応する定義名を持つ列が存在する場合はその列インデックスを返却します。存在しない場合は -1 を返却します。
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="name"/> が <see langword="null"/> の場合にスローされます。
+        /// </exception>
+        public int GetIndex(string name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            if (_indicesByName.TryGetValue(name, out var index))
+            {
+                return index;
+            }
+
+            return -1;
+        }
     }
 }
