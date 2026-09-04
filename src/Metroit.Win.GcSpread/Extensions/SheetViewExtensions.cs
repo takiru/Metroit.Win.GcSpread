@@ -360,5 +360,35 @@ namespace Metroit.Win.GcSpread.Extensions
                 column.Resizable = resizable;
             }
         }
+
+        // NOTE: キャッシュの目的のため、最もオーバーヘッドの少ない方法で実現する。
+        /// <summary>
+        /// <see cref="Column.DataField"/> を使って列のインデックス値のキャッシュ情報を生成します。<br/>
+        /// 同一の <see cref="Column.DataField"/> を有する列が複数あった場合、最初に見つかった列のインデックス値がキャッシュされます。
+        /// </summary>
+        /// <typeparam name="TRow"><see cref="Column.DataField"/> に紐づく列定義が構成された型。</typeparam>
+        /// <param name="sheetView">SheetView オブジェクト。</param>
+        /// <returns>インデックス値が生成されたキャッシュ情報オブジェクト。</returns>
+        public static ColumnIndexCache<TRow> CreateDataFieldIndexCache<TRow>(this SheetView sheetView)
+        {
+            var columnCount = sheetView.Columns.Count;
+            var indicesByName = new Dictionary<string, int>(columnCount);
+
+            for (var i = 0; i < columnCount; i++)
+            {
+                var dataField = sheetView.Columns[i].DataField;
+                if (string.IsNullOrEmpty(dataField))
+                {
+                    continue;
+                }
+
+                if (!indicesByName.ContainsKey(dataField))
+                {
+                    indicesByName[dataField] = i;
+                }
+            }
+
+            return new ColumnIndexCache<TRow>(indicesByName);
+        }
     }
 }

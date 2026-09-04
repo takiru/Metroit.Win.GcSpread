@@ -8,7 +8,7 @@
     <Authors>Takeru Yamaguchi</Authors>
     <Description>GrapeCity SPREAD for Windows Forms を少し使いやすくするライブラリです。</Description>
     <Copyright>Copyright 2024 Takeru Yamaguchi.</Copyright>
-    <VersionPrefix>17.3.2.1</VersionPrefix>
+    <VersionPrefix>17.3.3</VersionPrefix>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <PackageProjectUrl>https://github.com/takiru/Metroit.Win.GcSpread</PackageProjectUrl>
@@ -19,8 +19,8 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName).ja</PackageId>
     <PackageReleaseNotes>
-      Bugfix
-      - Cell.CanEditable() が、実際に扱われる CellType で検証が行われていない問題を修正。
+      Add
+      - SheetView.CreateDataFieldIndexCache(), ColumnIndexCache.GetIndex() を新設し、DataField からキャッシュされた列インデックスを高速かつ簡素に取得できるようにしました。
     </PackageReleaseNotes>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
